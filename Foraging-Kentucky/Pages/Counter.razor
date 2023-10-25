@@ -1,0 +1,32 @@
+﻿@using Foraging_Kentucky.Data
+@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<h3>Region Dropdown</h3>
+
+<select @bind="selectedRegion">
+    @foreach (var region in Constants.Regions)
+    {
+        <option value="@region">@region</option>
+    }
+</select>
+
+<p>You selected: @selectedRegion</p>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private string selectedRegion { get; set; }
+}
