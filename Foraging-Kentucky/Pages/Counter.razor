@@ -1,4 +1,5 @@
 ﻿@using Foraging_Kentucky.Data
+@using Foraging_Kentucky.Domain
 @page "/counter"
 
 <PageTitle>Counter</PageTitle>
@@ -9,16 +10,16 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-<h3>Region Dropdown</h3>
+<h3>Food Types</h3>
 
-<select @bind="selectedRegion">
-    @foreach (var region in Constants.Regions)
+<select @bind="selectedType">
+    @foreach (var type in ItemOptions.ItemTypes)
     {
-        <option value="@region">@region</option>
+        <option value="@type">@type</option>
     }
 </select>
 
-<p>You selected: @selectedRegion</p>
+<p>You selected: @selectedType</p>
 
 @code {
     private int currentCount = 0;
@@ -28,5 +29,6 @@
         currentCount++;
     }
 
-    private string selectedRegion { get; set; }
+    private string? selectedType { get; set; }
+    Item test = new Item("test");
 }

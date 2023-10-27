@@ -1,0 +1,73 @@
+﻿@using Foraging_Kentucky.Data
+@using Foraging_Kentucky.Domain
+@inject IJSRuntime JSRuntime
+@page "/additem"
+
+<PageTitle>Add an Item</PageTitle>
+
+<h1>Add an Item</h1>
+
+<fieldset>
+
+    <label for="name">Item name:</label>
+
+    <textarea @bind="name" id="name" name="name" rows="1" placeholder="Name">
+    </textarea>
+
+    <div class="item-type">
+        <select @bind="selectedType" name="select-type">
+            @foreach (var type in ItemOptions.ItemTypes)
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+        <p>You selected: @selectedType</p>
+    </div>
+
+</fieldset>
+
+<fieldset>
+
+    <label for="description">Describe the item:</label>
+    <textarea @bind="description" id="description" name="description" rows="4" cols="24" placeholder="Type here...">
+    </textarea>
+
+</fieldset>
+
+<fieldset>
+    <legend>Is it edible raw?</legend>
+
+    <div>
+        <input type="radio" id="raw-no" name="edible-raw" value="No" checked="@(checkEdibleRaw == false)" @onchange="(() => checkEdibleRaw = false)" />
+        <label for="raw-no">No</label>
+    </div>
+
+    <div>
+        <input type="radio" id="raw-yes" name="edible-raw" value="Yes" @onchange="(() => checkEdibleRaw = true)" />
+        <label for="raw-yes">Yes</label>
+    </div>
+</fieldset>
+
+
+
+<button class="btn btn-primary" @onclick="CreateNewItem">Create and Add</button>
+
+@code {
+    private string? name;
+
+    private string? description = "";
+
+    private string? selectedType { get; set; }
+
+    private bool checkEdibleRaw = false;
+
+    private void CreateNewItem()
+    {
+        Item item = new Item(name) { Type = selectedType, Description = description, IsEdibleRaw = checkEdibleRaw };
+        item.Users.Add(new User("Ryan Cornett", "12345"));
+        using var context = new ForageContext();
+        context.Items.Add(item);
+        context.SaveChanges();
+        JSRuntime.InvokeVoidAsync("console.log", "The method was called.");
+    }
+}
