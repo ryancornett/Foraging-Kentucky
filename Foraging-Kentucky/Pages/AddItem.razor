@@ -48,6 +48,15 @@
     </div>
 </fieldset>
 
+<div>
+    <h4>List of Items</h4>
+
+    @foreach (var item in listOfItems)
+    {
+        <p>@item.Name</p>
+    }
+</div>
+
 
 
 <button class="btn btn-primary" @onclick="CreateNewItem">Create and Add</button>
@@ -61,6 +70,20 @@
 
     private bool checkEdibleRaw = false;
 
+    private List<Item> listOfItems;
+
+    protected override async Task<List<Item>> OnInitializedAsync()
+    {
+        return await LoadItemsFromDatabase();
+    }
+
+    private async Task<List<Item>> LoadItemsFromDatabase()
+    {
+        using var context = new ForageContext();
+        listOfItems = context.Items.ToList();
+        return listOfItems;
+    }
+
     private void CreateNewItem()
     {
         Item item = new Item(name) { Type = selectedType, Description = description, IsEdibleRaw = checkEdibleRaw };
@@ -70,4 +93,5 @@
         context.SaveChanges();
         JSRuntime.InvokeVoidAsync("console.log", "The method was called.");
     }
+
 }
