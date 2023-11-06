@@ -7,10 +7,10 @@
 This is a Blazor Server App that allows users to add wild edible food items (nuts, fruit, mushrooms, vegetables) for foraging to a database, view existing items, and note discovery of items in season. In addition to the features below, I met the requirements for visual appeal, incorporated a database to persist data, and wrote more than the minimum of three methods.
 
 ### Features List
- - *Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program* (optional feature #1). ItemOptions.cs <<LINE NUMBER>> contains a list used throughout the app. 
- - *Comments in the code explaining how I employ the SOLID principles Single Responsibility Principle (SRP) and the Open/Closed Principle (OCP)* (optional feature #2). <<FILE.CS AND LINE NUMBERS>> 
- - *Implement a regular expression (regex) to ensure a field either a phone number or an email address is always stored and displayed in the same format* (optional feature #3). <<FILE.CS AND LINE NUMBERS>> 
- - *Have 2 or more tables (entities) in your application that are related and have a function return data from both entities. In entity framework, this is equivalent to a join* (optional feature #4). <<FILE.CS AND LINE NUMBERS>> 
+ - *Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program* (optional feature #1). **Domain/ItemOptions.cs**
+ - *Implement a log that records errors, invalid inputs, or other important events and writes them to a text file* (optional feature #2). **Common/Logger.cs** 
+ - *Implement a regular expression (regex) to ensure a field either a phone number or an email address is always stored and displayed in the same format* (optional feature #3). **Common/Validators.cs** & **Data/Repository.cs**
+ - *Create 3 or more unit tests for your application* (optional feature #4). **Testing/UnitTests.cs** 
 
 ### How to Run 
  - Restore NuGet packages

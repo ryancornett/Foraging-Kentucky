@@ -1,4 +1,4 @@
-﻿using Foraging_Kentucky.Domain;
+﻿using Foraging_Kentucky.Common;
 
 namespace Foraging_Kentucky.Data;
 public static class Seed

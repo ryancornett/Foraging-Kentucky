@@ -1,14 +1,15 @@
 using Foraging_Kentucky.Data;
-using Foraging_Kentucky.Domain;
+using Foraging_Kentucky.Common;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Data.Sqlite;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Foraging_Kentucky;
 public class Program
 {
     public static void Main(string[] args)
-    {
+    {        
         #region Clears the table, but not auto-incremented ID integers
         /*var folder = Environment.SpecialFolder.Desktop;
         var path = Environment.GetFolderPath(folder);
@@ -59,12 +60,14 @@ public class Program
 
         #endregion
 
-        var initialContext = new ForageContext();
+        /*using var initialContext = new ForageContext();
         if (!initialContext.Items.Any(id => id.Id == 3)) { Console.WriteLine("Id #3 does not exist."); }
         else { Console.WriteLine("Id #3 exists."); }
-        
-        // Seed.SeedDatabase();
-        DbMethods.AddItemWithUser("Dread Pirate Roberts");
+
+        using var context = new ForageContext();
+        var dbMethods = new DbMethods(context);
+        Seed.SeedDatabase();
+        dbMethods.AddItemWithUser("Constructor DbContext");*/
 
         #region Working code to add a list of users to the Users table
         /*            using var context = new ForageContext();

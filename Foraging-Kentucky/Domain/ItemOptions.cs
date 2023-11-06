@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Foraging_Kentucky.Domain
+namespace Foraging_Kentucky.Common
 {
     public static class ItemOptions
     {

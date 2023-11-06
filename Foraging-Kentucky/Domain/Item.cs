@@ -1,4 +1,4 @@
-﻿namespace Foraging_Kentucky.Domain;
+﻿namespace Foraging_Kentucky.Common;
 public class Item : IEntity
 {
     public int Id { get; set; }
@@ -15,10 +15,5 @@ public class Item : IEntity
     {
         this.Name = Name;
         Users = new List<User>();
-    }
-
-    public void UpdateTimeUpdated()
-    {
-        Updated = DateTime.Now;
     }
 }

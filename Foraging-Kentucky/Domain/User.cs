@@ -1,6 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using Foraging_Kentucky.Common;
 
-namespace Foraging_Kentucky.Domain;
+namespace Foraging_Kentucky.Common;
 public class User : IEntity
 {
     public int UserId { get; set; }
@@ -12,7 +12,7 @@ public class User : IEntity
 
     public User(string Name, string Email)
     {
-        if (ValidateEmail(Email))
+        if (Validators.ValidateEmail(Email))
         {
             this.Email = Email;
         }
@@ -22,16 +22,5 @@ public class User : IEntity
         }
         this.Name = Name;
         Items = new List<Item>();
-    }
-
-    public bool ValidateEmail(string email)
-    {
-        bool isEmailValid = Regex.IsMatch(email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
-        return isEmailValid;
-    }
-
-    public void UpdateTimeUpdated()
-    {
-        Updated = DateTime.Now;
     }
 }
