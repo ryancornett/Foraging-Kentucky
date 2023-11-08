@@ -1,0 +1,70 @@
+﻿@using Foraging_Kentucky.Data
+@using Foraging_Kentucky.Common
+@using Foraging_Kentucky.Domain
+@using System.Reflection
+@page "/recipes"
+
+<PageTitle>View Recipes</PageTitle>
+
+<h1>Recipes</h1>
+
+<p>Find recipes for the wild foods you find!</p>
+
+@if (recipes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Wild Food Ingredient</th>
+                <th>Other Ingredients</th>
+                <th>Directions</th>
+                <th>Added By</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var recipe in recipes)
+            {
+                <tr>
+                    <td>@recipe.Name</td>
+                    <td>@recipe.WildFoodIncluded.Name</td>
+                    <td>@recipe.Ingredients.MakeParagraphsFromString()</td>
+                    <td>@recipe.Instructions.MakeParagraphsFromString()</td>
+                    <td>@recipe.AddedBy.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Food Types</h3>
+
+    <select @bind="selectedType">
+        @foreach (var type in ItemOptions.ItemTypes)
+        {
+            <option value="@type">@type</option>
+        }
+    </select>
+
+    <p>You selected: @selectedType</p>
+}
+
+@code {
+    private string? selectedType { get; set; }
+    private List<Recipe> recipes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = new ForageContext();
+        var repo = new Repository(context);
+        recipes = await repo.GetRecipesListAsync();
+        var methodName = MethodBase.GetCurrentMethod().Name;
+        if (recipes == null)
+        {
+            Logger.Log(methodName, $"{Logger.error} No items were found.");
+        }
+    }
+}

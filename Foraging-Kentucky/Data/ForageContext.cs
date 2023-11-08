@@ -1,4 +1,4 @@
-﻿using Foraging_Kentucky.Common;
+﻿using Foraging_Kentucky.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Foraging_Kentucky.Data;

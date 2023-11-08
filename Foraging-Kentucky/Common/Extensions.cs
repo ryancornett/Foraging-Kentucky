@@ -1,4 +1,7 @@
-﻿namespace Foraging_Kentucky.Common;
+﻿using Microsoft.AspNetCore.Components;
+using System.Text;
+
+namespace Foraging_Kentucky.Common;
 
 public static class Extensions
 {
@@ -28,4 +31,8 @@ public static class Extensions
     }
 
     public static string[] MakeParagraphs(this string input) { return input.Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.None); }
+    public static MarkupString MakeParagraphsFromString(this string input)
+    {
+        return new MarkupString($@"{input.Replace("\n", "<br>")}");
+    }
 }

@@ -1,4 +1,4 @@
-﻿namespace Foraging_Kentucky.Common;
+﻿namespace Foraging_Kentucky.Domain;
 public class Recipe : IEntity
 {
     public int Id { get; set; }

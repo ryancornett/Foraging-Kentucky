@@ -1,6 +1,6 @@
 ﻿using Foraging_Kentucky.Common;
 
-namespace Foraging_Kentucky.Common;
+namespace Foraging_Kentucky.Domain;
 public class User : IEntity
 {
     public int UserId { get; set; }

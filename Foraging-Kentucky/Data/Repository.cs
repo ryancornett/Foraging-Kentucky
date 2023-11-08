@@ -1,4 +1,5 @@
 ﻿using Foraging_Kentucky.Common;
+using Foraging_Kentucky.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Foraging_Kentucky.Data;
@@ -30,7 +31,7 @@ public class Repository
     {
         var nameFromDb = _context.Users.Where(n => n.Name == userName).FirstOrDefault();
         if (nameFromDb == null) { nameFromDb = new User(userName, "default@default.com"); }
-        var item = new Item("Autumn Olive") { Type = ItemOptions.ItemTypes[0], Description = "Invasive plant with small, slightly astringent drupes that are high in lycopene.", IsEdibleRaw = true };
+        var item = new Item("Autumn Olive") { Type = ItemOptions.ItemTypes[0], Description = @"Invasive plant with small, slightly astringent drupes that are high in lycopene.", IsEdibleRaw = true };
         item.Users.Add(nameFromDb);
         item.Users.Add(new User("Testing Parameter", "test@testthis.net"));
         _context.Items.Add(item);
@@ -41,10 +42,23 @@ public class Repository
     {
         var nameFromDb = _context.Users.Where(n => n.Name == userName).FirstOrDefault();
         if (nameFromDb == null) { nameFromDb = new User(userName, email); }
-        var item = new Item("Autumn Olive") { Type = ItemOptions.ItemTypes[0], Description = "Invasive plant with small, slightly astringent drupes that are high in lycopene.", IsEdibleRaw = true };
+        var item = new Item("Autumn Olive") { Type = ItemOptions.ItemTypes[0], Description = @"Invasive plant with small, slightly astringent drupes that are high in lycopene.", IsEdibleRaw = true };
         item.Users.Add(nameFromDb);
         item.Users.Add(new User("Testing Parameter", "test@testthis.net"));
         _context.Items.Add(item);
+        _context.SaveChanges();
+    }
+
+    #region Item Methods
+    
+    public Task<List<Item>> GetItemsListAsync()
+    {
+        return _context.Items.AsNoTracking().ToListAsync();
+    }
+    public void UpdateExistingItem(Item item)
+    {
+        item.Updated = DateTime.Now;
+        _context.Items.Update(item);
         _context.SaveChanges();
     }
 
@@ -55,8 +69,7 @@ public class Repository
         else
         {
             item.Type = type;
-            item.Updated = DateTime.Now;
-            _context.SaveChanges();
+            UpdateExistingItem(item);
         }
     }
 
@@ -67,8 +80,7 @@ public class Repository
         else
         {
             item.Name = newItemName;
-            item.Updated = DateTime.Now;
-            _context.SaveChanges();
+            UpdateExistingItem(item);
         }
     }
 
@@ -79,8 +91,7 @@ public class Repository
         else
         {
             item.Description = description;
-            item.Updated = DateTime.Now;
-            _context.SaveChanges();
+            UpdateExistingItem(item);
         }
     }
 
@@ -92,17 +103,23 @@ public class Repository
         {
             bool isEdible = isEdibleRaw.ToLower() == "true" ? true : false;
             item.IsEdibleRaw = isEdible;
-            item.Updated = DateTime.Now;
-            _context.SaveChanges();
+            UpdateExistingItem(item);
         }
     }
+    #endregion
 
+    #region User Methods
+    public void UpdateExistingUser(User user)
+    {
+        user.Updated = DateTime.Now;
+        _context.Users.Update(user);
+        _context.SaveChanges();
+    }
     public void RetrieveAndUpdateUserName(string oldUsername, string newUsername)
     {
         var user = _context.Users.FirstOrDefault(n => n.Name == oldUsername);
         user.Name = newUsername;
-        user.Updated = DateTime.Now;
-        _context.SaveChanges();
+        UpdateExistingUser(user);
     }
 
     public void RetrieveAndUpdateUserEmail(string username, string newEmail)
@@ -113,8 +130,64 @@ public class Repository
         else
         {
             user.Email = newEmail;
-            user.Updated = DateTime.Now;
+            UpdateExistingUser(user);
+        }
+    }
+
+    public void DeleteUser(string username)
+    {
+        var user = _context.Users.FirstOrDefault(n => n.Name == username);
+        if (user != null)
+        {
+            _context.Users.Remove(user);
             _context.SaveChanges();
         }
     }
+
+    #endregion
+
+    #region Recipe Methods
+    public async Task<List<Recipe>> GetRecipesListAsync()
+    {
+        return await _context.Recipes.Include(r => r.WildFoodIncluded).Include(r => r.AddedBy).ToListAsync();
+    }
+    public void UpdateExistingRecipe(Recipe recipe)
+    {
+        recipe.Updated = DateTime.Now;
+        _context.Recipes.Update(recipe);
+        _context.SaveChanges();
+    }
+    public void RetrieveAndUpdateRecipeName(string oldRecipeName, string newRecipeName)
+    {
+        var recipe = _context.Recipes.FirstOrDefault(n => n.Name == oldRecipeName);
+        if (recipe == null) { return; }
+        else
+        {
+            recipe.Name = newRecipeName;
+            UpdateExistingRecipe(recipe);
+        }
+    }
+
+    public void RetrieveAndUpdateRecipeInstructions(string recipeName, string instructions)
+    {
+        var recipe = _context.Recipes.FirstOrDefault(n => n.Name == recipeName);
+        if (recipe == null) { return; }
+        else
+        {
+            recipe.Instructions = instructions;
+            UpdateExistingRecipe(recipe);
+        }
+    }
+
+    public void RetrieveAndUpdateRecipeIngredients(string recipeName, string ingredients)
+    {
+        var recipe = _context.Recipes.FirstOrDefault(n => n.Name == recipeName);
+        if (recipe == null) { return; }
+        else
+        {
+            recipe.Ingredients = ingredients;
+            UpdateExistingRecipe(recipe);
+        }
+    }
+    #endregion
 }

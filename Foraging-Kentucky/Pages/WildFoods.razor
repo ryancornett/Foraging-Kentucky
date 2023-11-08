@@ -1,0 +1,62 @@
+﻿@page "/wildfoods"
+@using Foraging_Kentucky.Data
+@using Foraging_Kentucky.Common
+@using Foraging_Kentucky.Domain
+@using System.Reflection;
+
+<PageTitle>All Wild Foods</PageTitle>
+
+<h1>All Wild Foods</h1>
+
+<p>Wild foods in order of addition.</p>
+
+@if (items == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Wild Food</th>
+                <th>Food Type</th>
+                <th>Description</th>
+                <th>Edible raw?</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in items)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Type</td>
+                    <td>@item.Description.MakeParagraphsFromString()</td>
+                    <td>@item.IsEdibleRaw.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Item> items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = new ForageContext();
+        var repo = new Repository(context);
+        items = await ReturnItems(repo);
+        string methodName = MethodBase.GetCurrentMethod().Name;
+
+        if (items == null)
+        {
+            Logger.Log(methodName, $"{Logger.error} No items were found.");
+        }
+    }
+
+    private async Task<List<Item>> ReturnItems(Repository localRepository)
+    {
+        return await localRepository.GetItemsListAsync();
+    }
+}

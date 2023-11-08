@@ -1,4 +1,6 @@
+using Foraging_Kentucky.Domain;
 using Foraging_Kentucky.Common;
+using System.Reflection;
 using System.Security.Policy;
 using Xunit.Sdk;
 
@@ -7,13 +9,28 @@ namespace Foraging_Kentucky.Testing
     public class UnitTests
     {
         [Fact]
-        public void LogByReturnForTestingPass()
+        public void LogByMethodName()
+        {
+            //Arrange
+            string methodName = MethodBase.GetCurrentMethod().Name;
+
+            // Act
+            var expected = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} : {methodName} - The operation was successful.";
+            var actual = Logger.LogMethodNameByReturnForTesting("LogByMethodName", Logger.success);
+
+            //Assert
+            Assert.Equal(expected, actual);
+
+        }
+
+        [Fact]
+        public void LogExtensionByReturnForTestingPass()
         {
             // Arrange
             var recipe = new Recipe() { Name = "Item Name" };
 
             // Act
-            string actual = recipe.Name.LogByReturnForTesting(Logger.success);
+            string actual = recipe.Name.LogExtensionByReturnForTesting(Logger.success);
             var expected = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} : Item Name - The operation was successful.";
 
             //Assert
@@ -21,13 +38,13 @@ namespace Foraging_Kentucky.Testing
         }
 
         [Fact]
-        public void LogByReturnForTestingFail()
+        public void LogExtensionByReturnForTestingFail()
         {
             // Arrange
             var recipe = new Recipe() { Name = "Item Name" };
 
             // Act
-            string actual = recipe.Name.LogByReturnForTesting(Logger.success);
+            string actual = recipe.Name.LogExtensionByReturnForTesting(Logger.success);
             var differentTime = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} : {recipe} - The operation was successful.";
 
             //Assert

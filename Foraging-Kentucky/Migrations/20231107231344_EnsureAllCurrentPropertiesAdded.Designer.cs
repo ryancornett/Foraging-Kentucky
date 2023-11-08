@@ -3,6 +3,7 @@ using System;
 using Foraging_Kentucky.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Foraging_Kentucky.Migrations
 {
     [DbContext(typeof(ForageContext))]
-    partial class ForageContextModelSnapshot : ModelSnapshot
+    [Migration("20231107231344_EnsureAllCurrentPropertiesAdded")]
+    partial class EnsureAllCurrentPropertiesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");

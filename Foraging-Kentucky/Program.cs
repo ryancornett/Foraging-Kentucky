@@ -4,16 +4,18 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Data.Sqlite;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 
 namespace Foraging_Kentucky;
 public class Program
 {
     public static void Main(string[] args)
-    {        
+    {
         #region Clears the table, but not auto-incremented ID integers
-        /*var folder = Environment.SpecialFolder.Desktop;
+        var folder = Environment.SpecialFolder.Desktop;
         var path = Environment.GetFolderPath(folder);
-        string DbPath = Path.Join(path, "forage-kentucky.db");
+        string DbPath = Path.Join(path, "/db/forage-kentucky.db");
 
         string connectionString = $"Data Source={DbPath}";
         using (SqliteConnection connection = new SqliteConnection(connectionString))
@@ -24,7 +26,7 @@ public class Program
             {
                 command.ExecuteNonQuery();
             }
-            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=1 WHERE name = 'Items'", connection))
+            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=0 WHERE name = 'Items'", connection))
             {
                 command.ExecuteNonQuery();
             }
@@ -32,7 +34,7 @@ public class Program
             {
                 command.ExecuteNonQuery();
             }
-            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=1 WHERE name = 'Users'", connection))
+            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=0 WHERE name = 'Users'", connection))
             {
                 command.ExecuteNonQuery();
             }
@@ -40,7 +42,7 @@ public class Program
             {
                 command.ExecuteNonQuery();
             }
-            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=1 WHERE name = 'ItemUser'", connection))
+            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=0 WHERE name = 'ItemUser'", connection))
             {
                 command.ExecuteNonQuery();
             }
@@ -48,7 +50,7 @@ public class Program
             {
                 command.ExecuteNonQuery();
             }
-            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=1 WHERE name = 'Recipes'", connection))
+            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=0 WHERE name = 'Recipes'", connection))
             {
                 command.ExecuteNonQuery();
             }
@@ -56,33 +58,19 @@ public class Program
             connection.Close();
         }
 
-        Console.WriteLine("Records cleared from the table.");*/
+        Console.WriteLine("Records cleared from the table.");
 
         #endregion
 
-        /*using var initialContext = new ForageContext();
-        if (!initialContext.Items.Any(id => id.Id == 3)) { Console.WriteLine("Id #3 does not exist."); }
-        else { Console.WriteLine("Id #3 exists."); }
-
+        var seedCheck = Seed.SeedDatabase();
         using var context = new ForageContext();
-        var dbMethods = new DbMethods(context);
-        Seed.SeedDatabase();
-        dbMethods.AddItemWithUser("Constructor DbContext");*/
+        if (!context.Items.Any(id => id.Id == 1))
+        {
+            Logger.Log(seedCheck, $"{Logger.error} No items were added to the database.");
+        }
+        else { Logger.Log(seedCheck, $"{Logger.success} The database was seeded."); }
 
-        #region Working code to add a list of users to the Users table
-        /*            using var context = new ForageContext();
-                    var tom = new User("Tom", "tom@tommyboy.com");
-                    var dick = new User("Dick", "dick@tommyboy.com");
-                    var harry = new User("Harry", "harry@tommyboy.com");
-                    var userList = new List<User> { tom, dick, harry };
-                    foreach (var user in userList)
-                    {
-                        context.Users.Add(user);
-                    }
-                    context.SaveChanges();*/
-        #endregion
-
-        #region Blazor App Configurations
+        #region App Configurations
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
