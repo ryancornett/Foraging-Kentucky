@@ -7,18 +7,20 @@
 This is a Blazor Server App that allows users to add wild edible food items (nuts, fruit, mushrooms, vegetables) for foraging to a database, view existing items, and note discovery of items in season. In addition to the features below, I met the requirements for visual appeal, incorporated a database to persist data, and wrote more than the minimum of three methods.
 
 ### Features List
- - *Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program* (optional feature #1). **Domain/ItemOptions.cs**
- - *Implement a log that records errors, invalid inputs, or other important events and writes them to a text file* (optional feature #2). **Common/Logger.cs** 
- - *Implement a regular expression (regex) to ensure a field either a phone number or an email address is always stored and displayed in the same format* (optional feature #3). **Common/Validators.cs** & **Data/Repository.cs**
- - *Create 3 or more unit tests for your application* (optional feature #4). **Testing/UnitTests.cs** 
+ 1. *Create 3 or more unit tests* (optional feature #1). **Testing/UnitTests.cs**
+ 2. *Implement a regular expression (regex) to ensure either a phone number or an email address is always stored and displayed in the same format* (optional feature #2). **Common/Validators.cs** & **Data/Repository.cs** 
+ 3. *Create a dictionary or list, populate it with several values, retrieve at least one value, and use it* (optional feature #3). **Domain/ItemOptions.cs**
+ 4. *Implement a log that records errors, invalid inputs, or other important events and writes them to a text file* (optional feature #4). **Common/Logger.cs**
+ 5. *Add comments to your code explaining how you are using at least 2 of the solid principles* (optional feature #5). **(SRP) Data/ClearDb.cs lines 5 & 6** and **(OCP) Domain/Item.cs lines 3 & 4** 
+ 6. *Make your application asynchronous* (optional feature #6). **Asynchronous database methods in @code sections of Pages/Dashboard.razor, /WildFoods.razor, & /Recipes.razor**
 
 ### How to Run 
- - Restore NuGet packages
- - In Powershell, enter *dotnet ef migrations add InitialCreate*
- - Then enter *dotnet ef database update* 
- - On building, *foraging-kentucky.db* will be created on your desktop (if running on a Mac, check ForageContext.cs to ensure the path works)
- - You might have to change the build from *https* to *http* to run the app in your browser
- - Use some or all of these suggested Items, Users, or Recipes to interact with the app/database:
+ 1. Restore NuGet packages
+ 2. In Powershell, navigate to the Solution folder and enter *dotnet ef migrations add "InitialCreate"*
+ 3. Then enter *dotnet ef database update* 
+ 4. On building, *foraging-kentucky.db* will be created on your desktop (if running on a Mac, check ForageContext.cs to ensure the path works)
+ 5. You might have to change the build from *https* to *http* to run the app in your browser
+ 6. Use some or all of these suggested Items, Users, or Recipes to interact with the app/database:
     - #### Items
     - 
     - #### Users

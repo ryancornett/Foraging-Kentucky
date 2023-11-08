@@ -3,6 +3,7 @@
 @using Foraging_Kentucky.Common
 @using Foraging_Kentucky.Domain
 @using System.Reflection;
+@inject IRepository<Item> repo
 
 <PageTitle>All Wild Foods</PageTitle>
 
@@ -44,19 +45,11 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        using var context = new ForageContext();
-        var repo = new Repository(context);
-        items = await ReturnItems(repo);
+        items = await repo.GetListAsync();
         string methodName = MethodBase.GetCurrentMethod().Name;
-
         if (items == null)
         {
             Logger.Log(methodName, $"{Logger.error} No items were found.");
         }
-    }
-
-    private async Task<List<Item>> ReturnItems(Repository localRepository)
-    {
-        return await localRepository.GetItemsListAsync();
     }
 }

@@ -1,30 +1,21 @@
 ﻿using Foraging_Kentucky.Common;
 using Foraging_Kentucky.Domain;
 using Microsoft.EntityFrameworkCore;
+using SQLitePCL;
 
 namespace Foraging_Kentucky.Data;
 public class Repository
 {
     private ForageContext _context;
-    public Repository(ForageContext context)
+    public Repository()
     {
-        _context = context;
+        _context = new ForageContext();
     }
 
     public List<Recipe> GetRecipesByUser(User user)
     {
         
         return _context.Recipes.Include(recipes => recipes.AddedBy == user).ToList();
-    }
-
-    public List<string> GetEntityNames(List<IEntity> entities)
-    {
-        var list = new List<string>();
-        foreach (var entity in entities)
-        {
-            list.Add(entity.Name);
-        }
-        return list;
     }
 
     public void AddItemWithUser(string userName)
@@ -51,10 +42,7 @@ public class Repository
 
     #region Item Methods
     
-    public Task<List<Item>> GetItemsListAsync()
-    {
-        return _context.Items.AsNoTracking().ToListAsync();
-    }
+    
     public void UpdateExistingItem(Item item)
     {
         item.Updated = DateTime.Now;
@@ -147,10 +135,6 @@ public class Repository
     #endregion
 
     #region Recipe Methods
-    public async Task<List<Recipe>> GetRecipesListAsync()
-    {
-        return await _context.Recipes.Include(r => r.WildFoodIncluded).Include(r => r.AddedBy).ToListAsync();
-    }
     public void UpdateExistingRecipe(Recipe recipe)
     {
         recipe.Updated = DateTime.Now;

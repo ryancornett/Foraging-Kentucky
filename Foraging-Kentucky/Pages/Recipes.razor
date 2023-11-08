@@ -2,6 +2,7 @@
 @using Foraging_Kentucky.Common
 @using Foraging_Kentucky.Domain
 @using System.Reflection
+@inject IRepository<Recipe> repo
 @page "/recipes"
 
 <PageTitle>View Recipes</PageTitle>
@@ -58,9 +59,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        using var context = new ForageContext();
-        var repo = new Repository(context);
-        recipes = await repo.GetRecipesListAsync();
+        recipes = await repo.GetListAsync();
         var methodName = MethodBase.GetCurrentMethod().Name;
         if (recipes == null)
         {

@@ -3,8 +3,18 @@ using Foraging_Kentucky.Domain;
 using System.Reflection;
 
 namespace Foraging_Kentucky.Data;
-public static class Seed
+public static class SeedDb
 {
+    public static void SeedAndVerify()
+    {
+        var seedCheck = SeedDatabase();
+        using var context = new ForageContext();
+        if (!context.Items.Any(id => id.Id == 1))
+        {
+            Logger.Log(seedCheck, $"{Logger.error} No items were added to the database.");
+        }
+        else { Logger.Log(seedCheck, $"{Logger.success} The database was seeded."); }
+    }
     public static List<User> CreateUsers()
     {
         var list = new List<User>

@@ -1,5 +1,5 @@
 ﻿namespace Foraging_Kentucky.Domain;
-public class Recipe : IEntity
+public class Recipe
 {
     public int Id { get; set; }
     public string Name { get; set; }

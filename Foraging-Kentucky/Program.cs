@@ -1,74 +1,15 @@
 using Foraging_Kentucky.Data;
 using Foraging_Kentucky.Common;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.Data.Sqlite;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System.Reflection;
-using Microsoft.EntityFrameworkCore;
+using Foraging_Kentucky.Domain;
 
 namespace Foraging_Kentucky;
 public class Program
 {
     public static void Main(string[] args)
     {
-        #region Clears the table, but not auto-incremented ID integers
-        var folder = Environment.SpecialFolder.Desktop;
-        var path = Environment.GetFolderPath(folder);
-        string DbPath = Path.Join(path, "/db/forage-kentucky.db");
+        ClearDb.ClearDatabase();
 
-        string connectionString = $"Data Source={DbPath}";
-        using (SqliteConnection connection = new SqliteConnection(connectionString))
-        {
-            connection.Open();
-
-            using (SqliteCommand command = new SqliteCommand("DELETE FROM Items", connection))
-            {
-                command.ExecuteNonQuery();
-            }
-            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=0 WHERE name = 'Items'", connection))
-            {
-                command.ExecuteNonQuery();
-            }
-            using (SqliteCommand command = new SqliteCommand("DELETE FROM Users", connection))
-            {
-                command.ExecuteNonQuery();
-            }
-            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=0 WHERE name = 'Users'", connection))
-            {
-                command.ExecuteNonQuery();
-            }
-            using (SqliteCommand command = new SqliteCommand("DELETE FROM ItemUser", connection))
-            {
-                command.ExecuteNonQuery();
-            }
-            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=0 WHERE name = 'ItemUser'", connection))
-            {
-                command.ExecuteNonQuery();
-            }
-            using (SqliteCommand command = new SqliteCommand("DELETE FROM Recipes", connection))
-            {
-                command.ExecuteNonQuery();
-            }
-            using (SqliteCommand command = new SqliteCommand("UPDATE sqlite_sequence SET seq=0 WHERE name = 'Recipes'", connection))
-            {
-                command.ExecuteNonQuery();
-            }
-
-            connection.Close();
-        }
-
-        Console.WriteLine("Records cleared from the table.");
-
-        #endregion
-
-        var seedCheck = Seed.SeedDatabase();
-        using var context = new ForageContext();
-        if (!context.Items.Any(id => id.Id == 1))
-        {
-            Logger.Log(seedCheck, $"{Logger.error} No items were added to the database.");
-        }
-        else { Logger.Log(seedCheck, $"{Logger.success} The database was seeded."); }
+        SeedDb.SeedAndVerify();
 
         #region App Configurations
         var builder = WebApplication.CreateBuilder(args);
@@ -76,7 +17,9 @@ public class Program
         // Add services to the container.
         builder.Services.AddRazorPages();
         builder.Services.AddServerSideBlazor();
-        builder.Services.AddSingleton<WeatherForecastService>();
+        builder.Services.AddSingleton<IRepository<Item>, ItemRepository>();
+        builder.Services.AddSingleton<IRepository<User>, UserRepository>();
+        builder.Services.AddSingleton<IRepository<Recipe>, RecipeRepository>();
 
         var app = builder.Build();
 
