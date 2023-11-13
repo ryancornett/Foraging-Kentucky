@@ -1,0 +1,129 @@
+﻿@using Foraging_Kentucky.Domain
+@using Foraging_Kentucky.Data
+@using Foraging_Kentucky.Common
+@using System.Reflection;
+@inject IJSRuntime JSRuntime
+@inject IRepository<Item> repo
+@inject IRepository<User> users
+
+<h3>Add a New Wild Food</h3>
+
+<div class="row my-1">
+    <div class="col-md-4">
+        <label for="username" class="form-label">Your Username</label>
+        <input id="username" placeholder="Username" @bind="@username" class="form-control" />
+    </div>
+</div>
+
+<div>
+    <span class="@alertSpan" role="alert">@alert</span>
+</div>
+
+<EditForm Model="@newItem" OnValidSubmit="AddThisItem" class="form-control">
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="name" class="form-label">Wild Food Name</label>
+            <InputText id="name" placeholder="Wild food name" @bind-Value="newItem.Name" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="type" class="form-label">Type of Food</label>
+            <InputSelect id="type" name="select-type" @bind-Value="newItem.Type" class="form-control">
+                <option disabled selected value> -- select an option -- </option>
+                @foreach (var type in ItemOptions.ItemTypes)
+                {
+                    <option value="@type">@type</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="description" class="form-label">Description</label>
+            <InputTextArea placeholder="Describe this wild food." @bind-Value="newItem.Description" class="form-control" />
+        </div>
+    </div>
+
+
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="isEdibleRaw" class="form-label">Is it Edible Raw?</label>
+            <InputCheckbox id="isEdibleRaw" @bind-Value="newItem.IsEdibleRaw" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn-primary">Add new wild food</button>
+</EditForm>
+
+@code {
+    private Item newItem = new Item("");
+    private string username;
+    private string name = string.Empty;
+    private string description = string.Empty;
+    private string selectedType { get; set; }
+    private bool checkEdibleRaw = false;
+    private void AddThisItem()
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        User user = users.Retrieve(username);
+        if (user == null) { AlertMessage("Username does not exist."); }
+        else
+        {
+            if (String.IsNullOrWhiteSpace(newItem.Name))
+            {
+                string message = "'Name' cannot be blank or white space. Please try again.";
+                AlertMessage(message);
+                newItem.Log(method, $"{Logger.error} - {message}");
+                LogToConsole(message);
+            }
+            else
+            {
+                repo.Add(newItem);
+                repo.AddUserToList(newItem, user);
+                ClearAlert();
+                newItem.Log(method, $"{Logger.success} - {newItem.Name} added by {user.Name}.");
+
+                name = string.Empty;
+                selectedType = string.Empty;
+                description = string.Empty;
+                checkEdibleRaw = false;
+            }
+        }
+    }
+
+    private List<Item> items;
+
+    public string alertSpan = "no-alert";
+
+    public string alert;
+
+    protected override async Task OnInitializedAsync()
+    {
+        items = await repo.GetListAsync();
+        string methodName = MethodBase.GetCurrentMethod().Name;
+        if (items == null)
+        {
+            Logger.Log(methodName, $"{Logger.error} No items were found.");
+        }
+    }
+
+    private void AlertMessage(string message)
+    {
+        alertSpan = "invalid-input validation-message";
+        alert = message;
+    }
+
+    private void ClearAlert()
+    {
+        alertSpan = "valid-input";
+        alert = string.Empty;
+    }
+
+    private void LogToConsole(string msg)
+    {
+        JSRuntime.InvokeVoidAsync("console.log", msg);
+    }
+}

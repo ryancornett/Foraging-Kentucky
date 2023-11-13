@@ -22,14 +22,32 @@
     <div class="footer-content">
         <div class="footer-left">
             <h2>Foraging Kentucky</h2>
+            <img class="footer-logo" src="images/fk-logo.png" alt="Foraging Kentucky logo. A bright cartoon-like image of a meandering stream surrounded by trees with mountains and a sunny sky in the backdrop." />
             <h5>Encouraging Kentuckians to taste nature's bounties.</h5>
         </div>
+        <div class="footer-middle">
+            <h5>Navigation</h5>
+            <span><a class="footer-links" href="home">Home</a></span>
+            <span><a class="footer-links" href="dashboard">Dashboard</a></span>
+            <span><a class="footer-links" href="wildfoods">Wild Foods</a></span>
+            <span><a class="footer-links" href="recipes">Recipes</a></span>
+            <span><a class="footer-links" href="foraging-basics">Foraging Basics</a></span>
+        </div>
         <div class="footer-right">
-            <a href="acknowledgements">Acknowledgements</a>
-            <a href="accessibility">Accessibility</a>
-            <a href="privacy">Privacy</a>
-            <a href="disclaimer">Disclaimer</a>
-            <a href="contact">Contact</a>
+            <h5>Information</h5>
+            <span><a class="footer-links" href="acknowledgements">Acknowledgements</a></span>
+            <span><a class="footer-links" href="accessibility">Accessibility</a></span>
+            <span><a class="footer-links" href="privacy">Privacy</a></span>
+            <span><a class="footer-links" href="disclaimer">Disclaimer</a></span>
+            <span><a class="footer-links" href="contact">Contact</a></span>
         </div>
     </div>
+    <div class="footer-info">
+        <p> Website by <a class="footer-links" href="https://linktr.ee/ryancornett" target="_blank">Ryan Cornett</a>  | All rights reserved <span bind="currentYear">@currentYear</span></p>
+    </div>
 </footer>
+
+@code
+{
+    private string currentYear = DateTime.Now.Year.ToString();
+}

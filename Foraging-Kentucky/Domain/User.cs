@@ -1,4 +1,5 @@
 ﻿using Foraging_Kentucky.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace Foraging_Kentucky.Domain;
 public class User
@@ -12,15 +13,8 @@ public class User
 
     public User(string Name, string Email)
     {
-        if (Validators.ValidateEmail(Email))
-        {
-            this.Email = Email;
-        }
-        else
-        {
-            this.Email = "genericeuser@genericuser.com";
-        }
         this.Name = Name;
+        this.Email = Email;
         Items = new List<Item>();
     }
 }

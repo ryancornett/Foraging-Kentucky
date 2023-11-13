@@ -3,11 +3,13 @@
 @using Foraging_Kentucky.Common
 @using Foraging_Kentucky.Domain
 @using System.Reflection;
+@inject IJSRuntime JSRuntime
 @inject IRepository<Item> repo
+@inject IRepository<User> users
 
-<PageTitle>All Wild Foods</PageTitle>
+<PageTitle>Wild Foods</PageTitle>
 
-<h1>All Wild Foods</h1>
+<AddItem></AddItem>
 
 <p>Wild foods in order of addition.</p>
 
@@ -41,7 +43,12 @@ else
 }
 
 @code {
+    
     private List<Item> items;
+
+    public string alertSpan = "no-alert";
+
+    public string alert;
 
     protected override async Task OnInitializedAsync()
     {

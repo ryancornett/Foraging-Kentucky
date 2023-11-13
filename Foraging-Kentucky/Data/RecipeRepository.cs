@@ -31,4 +31,19 @@ public class RecipeRepository : IRepository<Recipe>
             recipe.Log(method, $"{Logger.error} - {ex}");
         }
     }
+
+    public Recipe Retrieve(string name)
+    {
+        return _context.Recipes.FirstOrDefault(recipe => recipe.Name == name);
+    }
+
+    public bool CheckIfExists(string name)
+    {
+        return _context.Recipes.Any(u => u.Name == name);
+    }
+
+    public void AddUserToList(Recipe type, User user)
+    {
+        throw new NotImplementedException();
+    }
 }

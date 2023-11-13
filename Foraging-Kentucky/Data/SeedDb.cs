@@ -45,7 +45,11 @@ To process: remove the husks, clean the shells, dry them, and allow the nuts to 
             new Item("Autumn Olive")
             {
                 Type = ItemOptions.ItemTypes[0],
-                Description = @"Invasive plant with small, slightly astringent drupes that are high in lycopene.",
+                Description = @"This is an invasive plant with small, slightly astringent drupes that are high in lycopene. Autumn olives--or autumnberries--come from a hefty shrub with small, tough, sprawling tree. It usually produces several gnarled and spreading trunks, the largest of which may reach 6 inches in diameter. Look for silver speckles on the stems, leaves, and fruit which is why sometimes this fruit goes erroneously by the name Silver Berry.
+
+If you don’t know what autumn olives look like, smell for them in the spring. They give off a lovely and overwhelming, sometimes cloying aroma when in bloom. You will also see the dull yellow flowers in crowded clusters that hang from leaf axles. A blooming thick.
+
+Olive shaped fruits, typically smaller than a pea, are produced and hang all summer long in gray clumps seemingly never to ripen. But when they finally do, the fruit is an appealing reddish, ripening to an even deeper crimoson red on some buches. Flavor varies on different bushes as well.",
                 IsEdibleRaw = true
             },
             new Item("Common Milkweed")
@@ -126,6 +130,65 @@ Acorns are widely believed to be poisonous or an edible, but with proper process
 
 Hazelnuts will be ripe in August or September, but most years they will not produce very much, be empty, or full of worms. American hazels will quickly fill a container with their fluffy, volume in us in value cars; all things considered American hazels are easy to collect.",
                 IsEdibleRaw = true
+            },
+
+            new Item("Maypop")
+            {
+                Type = ItemOptions.ItemTypes[0],
+                Description = @"A perennial herbaceous fine with rough, slightly hairy, green stems rarely more than 8 mm thick. The vines may grow as much as 30 feet long, climbing over fenses, walls, bushes, small trees, or buildings.
+
+The alternate leaves are deeply three-lobed (occasionally five-lobed), 3-5 inches long, and about equally wide.
+
+Maypop is unique among American plants in that its fruit and flower (passiflora incarnata) generally go by separate names. The striking blossom, 2-3 inches wide, is the best-known part of this plant–and it is the state flower of Tennessee. It is quite possibly the coolest-looking flower in the world.
+
+The fruit is a large berry, usually 1-2.5 inches long and elliptic, spherical, or egg-shaped at maturity. The maypop's skin is smooth and dark green at first, but slowly gets wrinkly and yellowish after ripening.
+
+The inside is full of seeds in small sacs with pale, yellowish pulp that tastes like passion fruit (it is the same family, after all). When you break the surface of a Maypop, watch out because it MAY POP!",
+                IsEdibleRaw = true
+            },
+
+            new Item("Wild Plum")
+            {
+                Type = ItemOptions.ItemTypes[0],
+                Description = @"Usually some combination of red, orange, yellow, and blue. They are coated with a bloom just like cultivated plums. Wild plums range from oblong to globe-shaped.
+
+The fruit of larger kinds may reach nearly 2 inches in length, but the smaller species are typically less than 1 inch in diameter. Each plum contains a single, oblong, flattened stone like those found in cultivated plums. The skins are thick and tough. When ripe, wild plums are soft, tart, sweet, and juicy.
+
+You might have trouble finding them before the animals get to them. Not only do animals eat them for the fleshy part of the fruit, but the nut-like structure inside as the pit is highly sought after by critters as well.",
+                IsEdibleRaw = true
+            },
+
+            new Item("Wood Sorrel")
+            {
+                Type = ItemOptions.ItemTypes[3],
+                Description = @"There are numerous species of wood sorrel found throughout North America. They all belong to the oxalis family.
+
+The flowers have five petals, five sepals, and ten stamens. Some species are yellow, while others are pink or white. The yellow is by far the most abundant species in Kentucky.
+
+Look for blooms in the spring to late summer. After the flowers wither, the plants bare elongated, green, banana-shaped seed pods, 0.3–0.6 inches long. They are delightfully crunchy and add a wonderful texture to a mouth full of wood sorrel greens.
+
+Although these make for a wonderful trailside snack, be sure not to eat too much until you know if the oxalic acid will upset your stomach.",
+                IsEdibleRaw = true
+            },
+
+            new Item("Elderberry")
+            {
+                Type = ItemOptions.ItemTypes[0],
+                Description = @"Medium to large shrubs or small trees. American elder has large, opposite, pinnately compound leaves, sometimes as much as 20 inches in length. The leaves typically consist of seven leaflets, which are sharply serrated, 2-5 inches long, elliptic with sharply pointed tips, and sesile on or growing on very short petioles. The leaves and stems of elderberry give off a strong, unpleasant odor when cut or bruised.
+
+The small, white, five-petaled flowers, about 0.25 inches across, are produced in rounded, somewhat flattenned, topped clusters called umbrels at the ends of the branches. The fragrant blossoms open in late June and July.
+
+The elderberry fruit is a tiny drupe, generally about 0.13 inches in diameter. Dark purple and juicy when ripe, they make up for their lack of size with copious production. American elderberries ripen in July, August, and September with the plump clusters often drooping under their own weight.",
+                IsEdibleRaw = false
+            },
+
+            new Item("Dandelion")
+            {
+                Type = ItemOptions.ItemTypes[0],
+                Description = @"Dandelion greens are usually picked in early spring before the plants have flowered. The best leaves grow in rich, moist soil in locations where the plants do not get mowed. If there is a little shade or competition. The leaves usually stand erect rather than lie on the ground, which means they are more likely to be clean. Don’t pick leaves from dandelions that grow all alone on bare ground exposed to full sun, as these usually have a stronger flavor, tougher texture, and dirt clinging to them.
+
+The best dandelion greens, collected an early spring, are milder in flavor, and more tender than the older leaves but they are still somewhat bitter. Many dandelion aficionados claim that the spring greens are not bitter. We at FK have no reason to believe this; dandelion greens are just bitter! They are, however, quite nutricious, so use dandelions sparingly--cooked!--to balance something rich like chowder.",
+                IsEdibleRaw = true
             }
         };
         itemList[0].Users.Add(userList[0]); // Adds Dave to Black Walnut; use indexing to vary users added
@@ -139,6 +202,13 @@ Hazelnuts will be ripe in August or September, but most years they will not prod
         itemList[8].Users.Add(userList[3]);
         itemList[9].Users.Add(userList[4]);
         itemList[10].Users.Add(userList[0]);
+
+        itemList[11].Users.Add(userList[1]);
+        itemList[12].Users.Add(userList[2]);
+        itemList[13].Users.Add(userList[3]);
+        itemList[14].Users.Add(userList[4]);
+        itemList[15].Users.Add(userList[0]);
+
         return itemList;
     }
 
@@ -163,21 +233,22 @@ Don’t turn the heat to high, or bubbles in a form that will break the crust. O
 
     public static string SeedDatabase()
     {
-        var users = CreateUsers();
         var items = CreateItems();
-        var recipes = CreateRecipes();
-        recipes[0].WildFoodIncluded = items[0];
-        recipes[0].AddedBy = users[0];
-        recipes[1].WildFoodIncluded = items[9];
-        recipes[1].AddedBy = users[3];
-        recipes[2].WildFoodIncluded = items[9];
-        recipes[2].AddedBy = users[3];
-
         var context = new ForageContext();
         context.Items.AddRange(items);
+        context.SaveChanges();
+
+        //Now that items and users are in the DB, we can relate the recipes:
+        var recipes = CreateRecipes();
+        recipes[0].WildFoodIncluded = items[0];
+        recipes[0].AddedBy = context.Users.Find(1);
+        recipes[1].WildFoodIncluded = items[9];
+        recipes[1].AddedBy = context.Users.Find(4);
+        recipes[2].WildFoodIncluded = items[9];
+        recipes[2].AddedBy = context.Users.Find(4);
+
         context.Recipes.AddRange(recipes);
         context.SaveChanges();
-        Console.WriteLine("Seed method called.");
 
         return MethodBase.GetCurrentMethod().Name;
     }

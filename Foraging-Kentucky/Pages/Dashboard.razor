@@ -2,7 +2,7 @@
 @using Foraging_Kentucky.Common
 @using Foraging_Kentucky.Domain
 @using System.Reflection
-@inject IRepository<Item> repo
+@inject IRepository<User> repo
 @inject IJSRuntime JSRuntime
 @page "/dashboard"
 
@@ -11,120 +11,29 @@
 <h1>Dashboard</h1>
 <p>Create or edit your username, supply your email address, or delete your profile.</p>
 
-<fieldset>
+<div class="btn-group">
+    <div class="col-mx-2 flex-row">
+        <button class="btn-close-white" @onclick="RevealCreateNewUser">Register</button>
 
-    <label for="name">Item name:</label>
-
-    <textarea @bind="name" id="name" name="name" rows="1" placeholder="Name">
-    </textarea>
-
-    <div class="item-type">
-        <select @bind="selectedType" name="select-type">
-            <option value="-Select-" disabled>-Select-</option>
-            @foreach (var type in ItemOptions.ItemTypes)
-            {
-                <option value="@type">@type</option>
-            }
-        </select>
-        <p>You selected: @selectedType</p>
     </div>
-
-</fieldset>
-
-<fieldset>
-
-    <label for="description">Describe the item:</label>
-    <textarea @bind="description" id="description" name="description" rows="4" cols="24" placeholder="Type here...">
-    </textarea>
-
-</fieldset>
-
-<fieldset>
-    <legend>Is it edible raw?</legend>
-
-    <div>
-        <input type="radio" id="raw-no" name="edible-raw" value="No" checked="@(checkEdibleRaw == false)" @onchange="(() => checkEdibleRaw = false)" />
-        <label for="raw-no">No</label>
-    </div>
-
-    <div>
-        <input type="radio" id="raw-yes" name="edible-raw" value="Yes" @onchange="(() => checkEdibleRaw = true)" />
-        <label for="raw-yes">Yes</label>
-    </div>
-</fieldset>
-
-<p class="@paragraphClass" role="alert">@alert</p>
-
-<button class="btn btn-primary" @onclick="AddItem">Create and Add</button>
-
-<div>
-    <h4>List of Items</h4>
-
-    @foreach (var item in listOfItems)
-    {
-        <p>@item.Name</p>
-    }
 </div>
 
+@if (isCreateNewUserVisible)
+{
+    <NewUser />
+}
 
 @code {
-    private string name = string.Empty;
+    private bool isCreateNewUserVisible = false;
 
-    private string description = string.Empty;
+    private void RevealCreateNewUser()
+    {
+        isCreateNewUserVisible = true;
+    }
+}
 
-    private string selectedType { get; set; }
-
-    private bool checkEdibleRaw = false;
-
-    private List<Item> listOfItems;
-
-    private string paragraphClass;
-
-    private string alert;
-
+@code {
     protected override async Task OnInitializedAsync()
     {
-        listOfItems = await repo.GetListAsync();
-    }
-
-    private void AddItem()
-    {
-        var method = MethodBase.GetCurrentMethod().Name;
-        Item item = new Item(name.CapitalizeEachWord()) { Type = selectedType, Description = description, IsEdibleRaw = checkEdibleRaw };
-        item.Users.Add(new User("Ryan Cornett", "12345"));
-        if (String.IsNullOrWhiteSpace(name))
-        {
-            string message = "'Name' cannot be blank or white space. Please try again.";
-            paragraphClass = "alert alert-warning";
-            alert = message;
-            item.Log(method, $"{Logger.error} - {message}");
-            LogToConsole(message);
-        }
-        else
-        {
-            repo.Add(item);
-            ClearAlert();
-            name = string.Empty;
-            selectedType = string.Empty;
-            description = string.Empty;
-            checkEdibleRaw = false;
-        }
-    }
-
-    private void AlertMessage(string message)
-    {
-        paragraphClass = "alert alert-warning";
-        alert = message;
-    }
-
-    private void ClearAlert()
-    {
-        paragraphClass = "";
-        alert = string.Empty;
-    }
-
-    private void LogToConsole(string msg)
-    {
-        JSRuntime.InvokeVoidAsync("console.log", msg);
     }
 }

@@ -1,0 +1,89 @@
+﻿@using Foraging_Kentucky.Data
+@using Foraging_Kentucky.Common
+@using Foraging_Kentucky.Domain
+@using System.Reflection
+@inject IRepository<User> repo
+@inject IJSRuntime JSRuntime
+
+<h3>New User</h3>
+
+<EditForm Model="@newUser" OnValidSubmit="AddThisUser" class="form-control">
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="username" class="form-label">Create a Username</label>
+            <InputText id="username" placeholder="Username" @bind-Value="@newUser.Name" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="email" class="form-label">Enter your Email Address</label>
+            <InputText id="email" placeholder="Email" @bind-Value="@newUser.Email" class="form-control" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn-primary">Create User</button>
+
+</EditForm>
+
+<p class="@paragraphClass" role="alert">@alert</p>
+
+@code {
+    private User newUser = new User(string.Empty, string.Empty);
+
+    private void AddThisUser()
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        if (String.IsNullOrWhiteSpace(newUser.Name))
+        {
+            string message = "'Username' cannot be blank or white space. Please try again.";
+            AlertMessage(message);
+            newUser.Log(method, $"{Logger.error} - {message}");
+            LogToConsole(message);
+        }
+        else if (!Validators.ValidateEmail(newUser.Email))
+        {
+            string message = "'Email' must be in a valid format. Please try again.";
+            AlertMessage(message);
+            newUser.Log(method, $"{Logger.error} - {message}");
+            LogToConsole(message);
+        }
+        else
+        {
+            if (repo.CheckIfExists(newUser.Name))
+            {
+                string message = "User already exists.";
+                AlertMessage(message);
+                newUser.Log(method, $"{Logger.invalid} - {message}");
+                LogToConsole(message);
+            }
+            else
+            {
+                repo.Add(newUser);
+                ClearAlert();
+                newUser.Log(method, $"{Logger.success} - New user {newUser.Name} added.");
+                newUser = new User(string.Empty, string.Empty);
+            }
+        }
+    }
+    
+    public string paragraphClass = "valid";
+    public string alert;
+
+    private void AlertMessage(string message)
+    {
+        paragraphClass = "invalid validation-message";
+        alert = message;
+    }
+
+    private void ClearAlert()
+    {
+        paragraphClass = "valid";
+        alert = string.Empty;
+    }
+
+    private void LogToConsole(string msg)
+    {
+        JSRuntime.InvokeVoidAsync("console.log", msg);
+    }
+}

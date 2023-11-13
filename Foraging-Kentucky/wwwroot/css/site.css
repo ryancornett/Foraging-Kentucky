@@ -1,11 +1,18 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;1,400&display=swap');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Rubik', Arial, sans-serif;
+    --regular-font-weight: 400;
+    --bold-font-weight: 600;
+    --dark: #363062;
+    --medium: #435585;
+    --light: #818FB4;
+    --lightest: #a3aFd6;
 }
 
-.navbar-brand-ryan {
-    font-size: 3rem;
+.navbar-brand-fk {
+    font-size: 1.5rem;
 }
 
 h1:focus {
@@ -34,12 +41,27 @@ a, .btn-link {
     outline: 1px solid #26b050;
 }
 
-.invalid {
-    outline: 1px solid red;
+.invalid-input {
+    opacity: 1;
+    transition: all ease 250ms;
+}
+
+.valid-input {
+    opacity: 0;
+    transition: all ease 250ms;
 }
 
 .validation-message {
-    color: red;
+    color: crimson;
+}
+
+.field-collection {
+    display: flex;
+    align-items: center;
+}
+
+.field-collection > * {
+    margin-right: 1rem;
 }
 
 #blazor-error-ui {
@@ -70,3 +92,60 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+
+
+
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 2rem;
+}
+
+.footer-content {
+    display: flex;
+}
+
+.footer-logo {
+    --footer-logo-size: 30vh;
+    max-height: var(--footer-logo-size);
+    max-width: var(--footer-logo-size);
+    display: block;
+    margin: 1rem auto;
+}
+
+.footer-left {
+    max-height: 100%;
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.footer-middle, .footer-right {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.footer-middle > h5, .footer-right > h5 {
+    font-weight: var(--bold-font-weight);
+    padding-bottom: 0.75rem;
+}
+
+.footer-links {
+    color: white;
+    text-decoration: none;
+    transition: all ease 350ms;
+}
+
+    .footer-links:hover {
+        color: var(--lightest);
+        transition: all ease 350ms;
+    }
+
+.footer-info {
+    text-align: center;
+    margin: 3rem 0 -1rem 0;
+    font-size: 0.7rem;
+}

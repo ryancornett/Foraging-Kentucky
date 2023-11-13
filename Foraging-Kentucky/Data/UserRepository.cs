@@ -32,4 +32,19 @@ public class UserRepository : IRepository<User>
             user.Log(method, $"{Logger.error} - {ex}");
         }
     }
+
+    public User Retrieve(string name)
+    {
+        return _context.Users.FirstOrDefault(user => user.Name == name);
+    }
+
+    public bool CheckIfExists(string name)
+    {
+        return _context.Users.Any(u => u.Name == name);
+    }
+
+    public void AddUserToList(User type, User user)
+    {
+        throw new NotImplementedException();
+    }
 }
