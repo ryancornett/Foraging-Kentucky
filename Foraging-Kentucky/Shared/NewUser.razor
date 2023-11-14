@@ -2,6 +2,7 @@
 @using Foraging_Kentucky.Common
 @using Foraging_Kentucky.Domain
 @using System.Reflection
+@using Foraging_Kentucky.Models;
 @inject IRepository<User> repo
 @inject IJSRuntime JSRuntime
 
@@ -29,14 +30,14 @@
 <p class="@paragraphClass" role="alert">@alert</p>
 
 @code {
-    private User newUser = new User(string.Empty, string.Empty);
+    private NewUserModel newUser = new NewUserModel();
 
     private void AddThisUser()
     {
         var method = MethodBase.GetCurrentMethod().Name;
-        if (String.IsNullOrWhiteSpace(newUser.Name))
+        if (!Validators.ValidateUsername(newUser.Name))
         {
-            string message = "'Username' cannot be blank or white space. Please try again.";
+            string message = "Please enter a valid username (6-30 characters, no special characters except underscore).";
             AlertMessage(message);
             newUser.Log(method, $"{Logger.error} - {message}");
             LogToConsole(message);
@@ -59,16 +60,17 @@
             }
             else
             {
-                repo.Add(newUser);
+                User userEntity = new User(newUser.Name, newUser.Email);
+                repo.Add(userEntity);
                 ClearAlert();
-                newUser.Log(method, $"{Logger.success} - New user {newUser.Name} added.");
-                newUser = new User(string.Empty, string.Empty);
+                userEntity.Log(method, $"{Logger.success} - New user {userEntity.Name} added.");
+                newUser = new NewUserModel();
             }
         }
     }
     
     public string paragraphClass = "valid";
-    public string alert;
+    public string? alert;
 
     private void AlertMessage(string message)
     {

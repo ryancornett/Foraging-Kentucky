@@ -18,13 +18,13 @@ public class ItemRepository : IRepository<Item>
         return _context.Items.AsNoTracking().ToListAsync();
     }
 
-    public void Add(Item item)
+    public async Task Add(Item item)
     {
         var method = MethodBase.GetCurrentMethod().Name;
         try
         {
-            _context.Items.Add(item);
-            _context.SaveChanges();
+            await _context.Items.AddAsync(item);
+            await _context.SaveChangesAsync();
         }
         catch (Exception ex)
         {
@@ -42,18 +42,48 @@ public class ItemRepository : IRepository<Item>
         return _context.Items.Any(u => u.Name == name);
     }
 
-    public void AddUserToList(Item item, User user)
+    public async Task AddUserToList(Item item, User user)
     {
         var method = MethodBase.GetCurrentMethod().Name;
         try
         {
             item.Users.Add(user);
             _context.Items.Update(item);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            _context.Entry(item).State = EntityState.Detached;
         }
         catch (Exception ex)
         {
             item.Log(method, $"{Logger.error} - {ex}");
+        }
+    }
+
+    public async Task Delete(Item item)
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        try
+        {
+            _context.Items.Remove(item);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            item.Log(method, $"{Logger.error} - {item.Name} - {ex}");
+        }
+    }
+
+    public async Task Update(Item item)
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        try
+        {
+            _context.Items.Update(item);
+            await _context.SaveChangesAsync();
+            _context.Entry(item).State = EntityState.Detached;
+        }
+        catch (Exception ex)
+        {
+            item.Log(method, $"{Logger.error} - {item.Name} - {ex}");
         }
     }
 }

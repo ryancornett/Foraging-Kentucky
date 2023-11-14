@@ -13,7 +13,7 @@ public static class Extensions
             return input;
         }
 
-        string[] words = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        string[] words = input.ToLower().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
         for (int i = 0; i < words.Length; i++)
         {

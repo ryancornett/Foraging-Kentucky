@@ -19,17 +19,17 @@ public class UserRepository : IRepository<User>
         return _context.Users.AsNoTracking().ToListAsync();
     }
 
-    public void Add(User user)
+    public async Task Add(User user)
     {
         var method = MethodBase.GetCurrentMethod().Name;
         try
         {
-            _context.Users.Add(user);
-            _context.SaveChanges();
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
         }
         catch (Exception ex)
         {
-            user.Log(method, $"{Logger.error} - {ex}");
+            user.Log(method, $"{Logger.error} - {user.Name} - {ex}");
         }
     }
 
@@ -43,8 +43,38 @@ public class UserRepository : IRepository<User>
         return _context.Users.Any(u => u.Name == name);
     }
 
-    public void AddUserToList(User type, User user)
+    // Not needed for this entity
+    public Task AddUserToList(User type, User user)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task Delete(User user)
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        try
+        {
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            user.Log(method, $"{Logger.error} - {user.Name} - {ex}");
+        }
+    }
+
+    public async Task Update(User user)
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        try
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+            _context.Entry(user).State = EntityState.Detached;
+        }
+        catch (Exception ex)
+        {
+            user.Log(method, $"{Logger.error} - {user.Name} - {ex}");
+        }
     }
 }

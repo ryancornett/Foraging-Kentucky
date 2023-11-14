@@ -1,380 +1,54 @@
-2023-11-07 18:18:15 : SeedDatabase - An error occurred. No items were added to the database.
-2023-11-07 18:26:00 : SeedDatabase - An error occurred. No items were added to the database.
-2023-11-07 18:33:34 : SeedDatabase - An error occurred. No items were added to the database.
-2023-11-07 18:37:25 : SeedDatabase - An error occurred. No items were added to the database.
-2023-11-07 18:44:41 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-07 18:46:18 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-07 19:05:32 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 10:48:58 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 10:49:58 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 10:52:19 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 11:16:01 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 11:19:40 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 11:22:52 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 11:30:39 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 11:59:00 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 12:00:41 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 12:03:50 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 12:06:23 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 12:12:23 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 13:52:53 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 14:14:52 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 14:35:24 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 14:35:42 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' was null or white space.
-2023-11-08 14:40:01 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 14:41:13 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' was null or white space.
-2023-11-08 15:23:39 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 15:31:27 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 16:07:29 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 16:17:13 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 16:17:23 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' was null or white space.
-2023-11-08 16:17:30 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' was null or white space.
-2023-11-08 16:17:44 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' was null or white space.
-2023-11-08 16:40:52 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-08 16:41:12 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:06:40 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 10:15:21 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 10:15:40 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:28:03 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:30:31 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:30:52 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:31:13 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:33:12 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:33:15 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:33:22 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:33:27 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:33:34 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:33:38 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 10:57:19 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 11:33:02 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 11:36:58 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 12:17:39 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 13:04:56 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 13:06:37 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 13:12:32 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 13:12:40 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 13:22:38 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 13:22:43 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 13:23:32 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 14:07:35 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 14:07:42 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 14:07:45 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 14:17:16 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 14:17:58 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 14:59:25 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-09 14:59:55 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 15:16:48 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-09 16:13:51 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-10 09:15:06 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 09:18:11 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 09:20:18 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 09:31:03 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 09:32:47 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 09:34:28 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 09:37:03 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 09:40:21 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 10:15:35 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 10:18:10 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 10:20:02 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-10 10:20:11 : Foraging_Kentucky.Domain.Item - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
+2023-11-14 09:46:07 : SeedDatabase - The operation was successful. The database was seeded.
+2023-11-14 09:46:41 : Foraging_Kentucky.Domain.Item - The operation was successful. - Why U No Work added by Dave.
+2023-11-14 09:47:27 : Foraging_Kentucky.Domain.Item - The operation was successful. - Now Can We Add Another added by Eowyn.
+2023-11-14 09:47:50 : Foraging_Kentucky.Domain.User - An error occurred. - NewUser1 - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: ItemUser.ItemsId, ItemUser.UsersUserId'.
    at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
    at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
    at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
    --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.ItemRepository.Add(Item item) in C:\CS\Foraging-Kentucky\Foraging-Kentucky\Data\ItemRepository.cs:line 27
-2023-11-10 10:21:32 : Foraging_Kentucky.Domain.Item - An error occurred. - System.InvalidOperationException: The instance of entity type 'ItemUser (Dictionary<string, object>)' cannot be tracked because another instance with the same key value for {'ItemsId', 'UsersUserId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.UpdateIdentityMap(InternalEntityEntry entry, IKey key)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IEnumerable`1 containingPrincipalKeys, IEnumerable`1 containingForeignKeys, Object oldValue, Object newValue)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IEnumerable`1 keys, IEnumerable`1 foreignKeys, Object oldValue, Object newValue)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectKeyChange(InternalEntityEntry entry, IProperty property)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
-   at Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.ItemRepository.Add(Item item) in C:\CS\Foraging-Kentucky\Foraging-Kentucky\Data\ItemRepository.cs:line 27
-2023-11-10 10:42:48 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 10:44:03 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-10 10:44:17 : Foraging_Kentucky.Domain.Item - An error occurred. - New item added by Foraging_Kentucky.Domain.User.
-2023-11-10 11:12:30 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 11:13:01 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-10 11:13:14 : Foraging_Kentucky.Domain.Item - An error occurred. - 'Name' cannot be blank or white space. Please try again.
-2023-11-10 11:15:54 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 11:17:49 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 11:27:20 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 11:45:30 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 16:17:44 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 16:19:12 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 16:20:13 : Foraging_Kentucky.Domain.User - An error occurred. - 'Username' cannot be blank or white space. Please try again.
-2023-11-10 16:20:24 : Foraging_Kentucky.Domain.User - An error occurred. - 'Email' must be in a valid format. Please try again.
-2023-11-10 16:20:32 : Foraging_Kentucky.Domain.User - An error occurred. - 'Email' must be in a valid format. Please try again.
-2023-11-10 16:20:36 : Foraging_Kentucky.Domain.User - An error occurred. - 'Email' must be in a valid format. Please try again.
-2023-11-10 16:29:25 : Foraging_Kentucky.Domain.User - An error occurred. - 'Username' cannot be blank or white space. Please try again.
-2023-11-10 16:32:30 : Foraging_Kentucky.Domain.User - The operation was successful. - New user  added.
-2023-11-10 16:32:37 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Foraging_Kentucky.Data.UserRepository.Add(User user) in C:\CS\Foraging-Kentucky\Foraging-Kentucky\Data\UserRepository.cs:line 28
+2023-11-14 09:47:50 : Foraging_Kentucky.Domain.User - The operation was successful. - New user NewUser1 added.
+2023-11-14 09:48:18 : Foraging_Kentucky.Domain.User - An error occurred. - NewUser2 - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: ItemUser.ItemsId, ItemUser.UsersUserId'.
    at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
    at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
    at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
    --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:32:37 : Foraging_Kentucky.Domain.User - The operation was successful. - New user erererer added.
-2023-11-10 16:33:18 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:33:18 : Foraging_Kentucky.Domain.User - The operation was successful. - New user erererer added.
-2023-11-10 16:33:20 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:33:20 : Foraging_Kentucky.Domain.User - The operation was successful. - New user erererer added.
-2023-11-10 16:35:15 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:35:15 : Foraging_Kentucky.Domain.User - The operation was successful. - New user  added.
-2023-11-10 16:35:21 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:35:21 : Foraging_Kentucky.Domain.User - The operation was successful. - New user  added.
-2023-11-10 16:35:24 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:35:24 : Foraging_Kentucky.Domain.User - The operation was successful. - New user  added.
-2023-11-10 16:37:19 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:37:19 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Bob added.
-2023-11-10 16:46:23 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:46:23 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Bob added.
-2023-11-10 16:46:26 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:46:26 : Foraging_Kentucky.Domain.User - The operation was successful. - New user  added.
-2023-11-10 16:47:11 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 16:47:49 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 16:47:57 : Foraging_Kentucky.Domain.User - An error occurred. - 'Username' cannot be blank or white space. Please try again.
-2023-11-10 16:48:04 : Foraging_Kentucky.Domain.User - An error occurred. - 'Email' must be in a valid format. Please try again.
-2023-11-10 16:48:14 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Bob added.
-2023-11-10 16:50:37 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:50:37 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Bob added.
-2023-11-10 16:58:55 : Foraging_Kentucky.Domain.User - An error occurred. - 'Email' must be in a valid format. Please try again.
-2023-11-10 16:59:01 : Foraging_Kentucky.Domain.User - An error occurred. - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: Users.UserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
-   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
-   at Foraging_Kentucky.Data.UserRepository.Add(User user)
-2023-11-10 16:59:01 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Dave added.
-2023-11-10 17:07:24 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 17:07:33 : Foraging_Kentucky.Domain.User - An error occurred. - 'Email' must be in a valid format. Please try again.
-2023-11-10 17:07:36 : Foraging_Kentucky.Domain.User - Invalid input. - User already exists.
-2023-11-10 17:07:49 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Davey added.
-2023-11-10 17:59:05 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 18:29:28 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-10 18:30:52 : Foraging_Kentucky.Domain.User - An error occurred. - 'Username' cannot be blank or white space. Please try again.
-2023-11-13 08:06:28 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-13 08:07:14 : Foraging_Kentucky.Domain.Item - The operation was successful. - New item added by Eowyn.
-2023-11-13 08:11:33 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-13 08:12:18 : Foraging_Kentucky.Domain.Item - The operation was successful. - Mulberry added by Aragorn Stryder.
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Foraging_Kentucky.Data.UserRepository.Add(User user) in C:\CS\Foraging-Kentucky\Foraging-Kentucky\Data\UserRepository.cs:line 28
+2023-11-14 09:48:18 : Foraging_Kentucky.Domain.User - The operation was successful. - New user NewUser2 added.
+2023-11-14 09:59:36 : SeedDatabase - The operation was successful. The database was seeded.
+2023-11-14 10:00:11 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Test_User added.
+2023-11-14 10:00:26 : Foraging_Kentucky.Domain.Item - The operation was successful. - Mulberry added by Test_User.
+2023-11-14 10:01:32 : Foraging_Kentucky.Domain.Item - The operation was successful. - Food Number Two added by Dave.
+2023-11-14 10:02:00 : Foraging_Kentucky.Domain.Item - The operation was successful. - Food Number Three added by Eowyn.
+2023-11-14 10:02:41 : Foraging_Kentucky.Domain.User - The operation was successful. - New user BillyJean added.
+2023-11-14 10:03:03 : Foraging_Kentucky.Domain.Item - The operation was successful. - Is Transient The Answer added by BillyJean.
+2023-11-14 10:10:37 : SeedDatabase - The operation was successful. The database was seeded.
+2023-11-14 10:11:01 : Foraging_Kentucky.Models.AddItemModel - Invalid input. - Black walnut - This wild food item has already been added to our database.

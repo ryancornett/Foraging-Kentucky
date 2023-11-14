@@ -17,9 +17,9 @@ public class Program
         // Add services to the container.
         builder.Services.AddRazorPages();
         builder.Services.AddServerSideBlazor();
-        builder.Services.AddSingleton<IRepository<Item>, ItemRepository>();
-        builder.Services.AddSingleton<IRepository<User>, UserRepository>();
-        builder.Services.AddSingleton<IRepository<Recipe>, RecipeRepository>();
+        builder.Services.AddTransient<IRepository<Item>, ItemRepository>();
+        builder.Services.AddTransient<IRepository<User>, UserRepository>();
+        builder.Services.AddTransient<IRepository<Recipe>, RecipeRepository>();
 
         var app = builder.Build();
 

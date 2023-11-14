@@ -20,10 +20,10 @@ public static class SeedDb
         var list = new List<User>
         {
             new User("Dave", "dave@wendys.com"),
-            new User("Dread Pirate Roberts", "pirateguy08@asyouwish.net"),
-            new User("Aragorn Stryder", "king@gondor.com"),
+            new User("DreadPirateRoberts", "pirateguy08@asyouwish.net"),
+            new User("Aragorn_Stryder", "king@gondor.com"),
             new User("Eowyn", "rohanrules@horselords.gov"),
-            new User("Olivia Dunham", "olive@fringe.fbi.gov")
+            new User("Olivia_Dunham", "olive@fringe.fbi.gov")
         };
         return list;
     }

@@ -2,6 +2,7 @@
 @using Foraging_Kentucky.Data
 @using Foraging_Kentucky.Common
 @using System.Reflection;
+@using Foraging_Kentucky.Models;
 @inject IJSRuntime JSRuntime
 @inject IRepository<Item> repo
 @inject IRepository<User> users
@@ -30,8 +31,8 @@
     <div class="row my-1">
         <div class="col-md-4">
             <label for="type" class="form-label">Type of Food</label>
-            <InputSelect id="type" name="select-type" @bind-Value="newItem.Type" class="form-control">
-                <option disabled selected value> -- select an option -- </option>
+            <InputSelect id="type" name="select-type" @bind-Value="newItem.Type" class="form-control" required>
+                <option disabled selected value>- select an option -</option>
                 @foreach (var type in ItemOptions.ItemTypes)
                 {
                     <option value="@type">@type</option>
@@ -42,8 +43,8 @@
 
     <div class="row my-1">
         <div class="col-md-4">
-            <label for="description" class="form-label">Description</label>
-            <InputTextArea placeholder="Describe this wild food." @bind-Value="newItem.Description" class="form-control" />
+            <label for="description" value=null class="form-label">Description</label>
+            <InputTextArea placeholder="Describe this wild food." required @bind-Value="newItem.Description" class="form-control" />
         </div>
     </div>
 
@@ -59,12 +60,8 @@
 </EditForm>
 
 @code {
-    private Item newItem = new Item("");
+    public AddItemModel newItem = new AddItemModel();
     private string username;
-    private string name = string.Empty;
-    private string description = string.Empty;
-    private string selectedType { get; set; }
-    private bool checkEdibleRaw = false;
     private void AddThisItem()
     {
         var method = MethodBase.GetCurrentMethod().Name;
@@ -76,38 +73,34 @@
             {
                 string message = "'Name' cannot be blank or white space. Please try again.";
                 AlertMessage(message);
-                newItem.Log(method, $"{Logger.error} - {message}");
+                newItem.Log(method, $"{Logger.invalid} - {newItem.Name} - {message}");
+                LogToConsole(message);
+            }
+            else if (repo.CheckIfExists(newItem.Name.CapitalizeEachWord()))
+            {
+                string message = "This wild food item has already been added to our database.";
+                AlertMessage(message);
+                newItem.Log(method, $"{Logger.invalid} - {newItem.Name} - {message}");
                 LogToConsole(message);
             }
             else
             {
-                repo.Add(newItem);
-                repo.AddUserToList(newItem, user);
+                var itemEntity = new Item(newItem.Name.CapitalizeEachWord()) { Type = newItem.Type, Description = newItem.Description, IsEdibleRaw = newItem.IsEdibleRaw };
+                repo.Add(itemEntity);
+                repo.AddUserToList(itemEntity, user);
                 ClearAlert();
-                newItem.Log(method, $"{Logger.success} - {newItem.Name} added by {user.Name}.");
-
-                name = string.Empty;
-                selectedType = string.Empty;
-                description = string.Empty;
-                checkEdibleRaw = false;
+                itemEntity.Log(method, $"{Logger.success} - {itemEntity.Name} added by {user.Name}.");
+                newItem = new AddItemModel();
+                username = string.Empty;
             }
         }
     }
 
-    private List<Item> items;
-
     public string alertSpan = "no-alert";
-
     public string alert;
 
     protected override async Task OnInitializedAsync()
     {
-        items = await repo.GetListAsync();
-        string methodName = MethodBase.GetCurrentMethod().Name;
-        if (items == null)
-        {
-            Logger.Log(methodName, $"{Logger.error} No items were found.");
-        }
     }
 
     private void AlertMessage(string message)

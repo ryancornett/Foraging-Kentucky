@@ -18,13 +18,13 @@ public class RecipeRepository : IRepository<Recipe>
         return await _context.Recipes.Include(r => r.WildFoodIncluded).Include(r => r.AddedBy).ToListAsync();
     }
 
-    public void Add(Recipe recipe)
+    public async Task Add(Recipe recipe)
     {
         var method = MethodBase.GetCurrentMethod().Name;
         try
         {
-            _context.Recipes.Add(recipe);
-            _context.SaveChanges();
+            await _context.Recipes.AddAsync(recipe);
+            await _context.SaveChangesAsync();
         }
         catch (Exception ex)
         {
@@ -42,8 +42,48 @@ public class RecipeRepository : IRepository<Recipe>
         return _context.Recipes.Any(u => u.Name == name);
     }
 
-    public void AddUserToList(Recipe type, User user)
+    public async Task AddUserToList(Recipe recipe, User user)
     {
-        throw new NotImplementedException();
+        var method = MethodBase.GetCurrentMethod().Name;
+        try
+        {
+            recipe.AddedBy = user;
+            _context.Recipes.Update(recipe);
+            await _context.SaveChangesAsync();
+            _context.Entry(recipe).State = EntityState.Detached;
+        }
+        catch (Exception ex)
+        {
+            recipe.Log(method, $"{Logger.error} - {recipe.Name} - {ex}");
+        }
+    }
+
+    public async Task Delete(Recipe recipe)
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        try
+        {
+            _context.Recipes.Remove(recipe);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            recipe.Log(method, $"{Logger.error} - {recipe.Name} - {ex}");
+        }
+    }
+
+    public async Task Update(Recipe recipe)
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        try
+        {
+            _context.Recipes.Update(recipe);
+            await _context.SaveChangesAsync();
+            _context.Entry(recipe).State = EntityState.Detached;
+        }
+        catch (Exception ex)
+        {
+            recipe.Log(method, $"{Logger.error} - {recipe.Name} - {ex}");
+        }
     }
 }
