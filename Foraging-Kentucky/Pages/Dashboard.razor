@@ -13,26 +13,112 @@
 
 <div class="btn-group">
     <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="RevealCreateNewUser">Register</button>
+        <button class="btn-close-white" @onclick="ToggleCreateNewUser">Register</button>
+    </div>
 
+    <div class="col-mx-2 flex-row">
+        <button class="btn-close-white" @onclick="ToggleChangeUsername">Change Username</button>
+    </div>
+
+    <div class="col-mx-2 flex-row">
+        <button class="btn-close-white" @onclick="ToggleChangeEmail">Change Email</button>
+    </div>
+
+    <div class="col-mx-2 flex-row">
+        <button class="btn-close-white" @onclick="ToggleDeleteProfile">Delete Profile</button>
     </div>
 </div>
 
+<UIMessage @ref="uiMessage" />
+
 @if (isCreateNewUserVisible)
 {
-    <NewUser />
+    <NewUser Parent ="@this" />
+}
+@if (isChangeUsernameVisible)
+{
+    <ChangeUsername Parent ="@this" />
+}
+@if (isChangeEmailVisible)
+{
+    <ChangeEmail Parent ="@this" />
+}
+@if (isDeleteProfileVisible)
+{
+    <DeleteProfile Parent ="@this" />
 }
 
 @code {
-    private bool isCreateNewUserVisible = false;
+    public UIMessage uiMessage;
+    public bool isCreateNewUserVisible = false;
+    private bool isChangeUsernameVisible = false;
+    private bool isChangeEmailVisible = false;
+    private bool isDeleteProfileVisible = false;
 
-    private void RevealCreateNewUser()
+    public async Task ToggleCreateNewUser()
     {
-        isCreateNewUserVisible = true;
+        if (isCreateNewUserVisible) { isCreateNewUserVisible = false; }
+        else
+        {
+            isCreateNewUserVisible = true;
+            isChangeUsernameVisible = false;
+            isChangeEmailVisible = false;
+            isDeleteProfileVisible = false;
+        }
+        RemoveComponentAndFadeAlert();
     }
-}
 
-@code {
+    public async Task ToggleChangeUsername()
+    {
+        if (isChangeUsernameVisible) { isChangeUsernameVisible = false; }
+        else
+        {
+            isChangeUsernameVisible = true;
+            isCreateNewUserVisible = false;
+            isChangeEmailVisible = false;
+            isDeleteProfileVisible = false;
+        }
+        RemoveComponentAndFadeAlert();
+    }
+
+    public async Task ToggleChangeEmail()
+    {
+        if (isChangeEmailVisible) { isChangeEmailVisible = false; }
+        else
+        {
+            isChangeEmailVisible = true;
+            isCreateNewUserVisible = false;
+            isChangeUsernameVisible = false;
+            isDeleteProfileVisible = false;
+        }
+        RemoveComponentAndFadeAlert();
+    }
+
+    public async Task ToggleDeleteProfile()
+    {
+        if (isDeleteProfileVisible) { isDeleteProfileVisible = false; }
+        else
+        {
+            isDeleteProfileVisible = true;
+            isCreateNewUserVisible = false;
+            isChangeUsernameVisible = false;
+            isChangeEmailVisible = false;
+        }
+        RemoveComponentAndFadeAlert();
+    }
+
+    public async Task RemoveComponentAndFadeAlert()
+    {
+        StateHasChanged();
+        await Task.Delay(2000);
+        uiMessage.ClearAlert();
+    }
+
+    public void LogToConsole(string msg)
+    {
+        JSRuntime.InvokeVoidAsync("console.log", msg);
+    }
+
     protected override async Task OnInitializedAsync()
     {
     }

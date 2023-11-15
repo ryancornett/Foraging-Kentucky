@@ -3,8 +3,8 @@
 @using Foraging_Kentucky.Domain
 @using System.Reflection
 @using Foraging_Kentucky.Models;
+@using Foraging_Kentucky.Pages;
 @inject IRepository<User> repo
-@inject IJSRuntime JSRuntime
 
 <h3>New User</h3>
 
@@ -27,65 +27,44 @@
 
 </EditForm>
 
-<p class="@paragraphClass" role="alert">@alert</p>
-
 @code {
-    private NewUserModel newUser = new NewUserModel();
+    [Parameter]
+    public Dashboard Parent { get; set; }
 
-    private void AddThisUser()
+    private UserModel newUser = new UserModel();
+
+    private async Task AddThisUser()
     {
         var method = MethodBase.GetCurrentMethod().Name;
-        if (!Validators.ValidateUsername(newUser.Name))
+        if (newUser.Name == null || !Validators.ValidateUsername(newUser.Name))
         {
             string message = "Please enter a valid username (6-30 characters, no special characters except underscore).";
-            AlertMessage(message);
-            newUser.Log(method, $"{Logger.error} - {message}");
-            LogToConsole(message);
+            Parent.uiMessage.AlertMessage(message);
+            newUser.Log(method, $"{Logger.invalid} - {newUser.Name} - {message}");
         }
-        else if (!Validators.ValidateEmail(newUser.Email))
+        else if (newUser.Email == null || !Validators.ValidateEmail(newUser.Email))
         {
             string message = "'Email' must be in a valid format. Please try again.";
-            AlertMessage(message);
-            newUser.Log(method, $"{Logger.error} - {message}");
-            LogToConsole(message);
+            Parent.uiMessage.AlertMessage(message);
+            newUser.Log(method, $"{Logger.invalid} - {newUser.Name} - {message}");
         }
         else
         {
             if (repo.CheckIfExists(newUser.Name))
             {
                 string message = "User already exists.";
-                AlertMessage(message);
-                newUser.Log(method, $"{Logger.invalid} - {message}");
-                LogToConsole(message);
+                Parent.uiMessage.AlertMessage(message);
+                newUser.Log(method, $"{Logger.error} - {newUser.Name} - {message}");
             }
             else
             {
                 User userEntity = new User(newUser.Name, newUser.Email);
-                repo.Add(userEntity);
-                ClearAlert();
+                Parent.uiMessage.SuccessMessage($"New user {userEntity.Name} successfully added!");
+                await repo.Add(userEntity);
                 userEntity.Log(method, $"{Logger.success} - New user {userEntity.Name} added.");
-                newUser = new NewUserModel();
+                newUser = new UserModel();
+                Parent.ToggleCreateNewUser();
             }
         }
-    }
-    
-    public string paragraphClass = "valid";
-    public string? alert;
-
-    private void AlertMessage(string message)
-    {
-        paragraphClass = "invalid validation-message";
-        alert = message;
-    }
-
-    private void ClearAlert()
-    {
-        paragraphClass = "valid";
-        alert = string.Empty;
-    }
-
-    private void LogToConsole(string msg)
-    {
-        JSRuntime.InvokeVoidAsync("console.log", msg);
     }
 }

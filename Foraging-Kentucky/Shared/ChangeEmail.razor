@@ -1,0 +1,64 @@
+﻿@using Foraging_Kentucky.Common;
+@using Foraging_Kentucky.Data;
+@using Foraging_Kentucky.Domain;
+@using Foraging_Kentucky.Models;
+@using Foraging_Kentucky.Pages;
+@using System.Reflection;
+@inject IRepository<User> repo
+
+<h3>Change Email</h3>
+
+<div class="row my-1">
+    <div class="col-md-4">
+        <label for="username" class="form-label">Username</label>
+        <input id="username" placeholder="Username" @bind="@username" class="form-control" />
+    </div>
+</div>
+
+<EditForm Model="@userModel" OnValidSubmit="ChangeThisEmail" class="form-control">
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="new-email" class="form-label">New Email Address</label>
+            <InputText id="new-email" placeholder="New" @bind-Value="@userModel.Email" class="form-control" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn-primary">Update Username</button>
+
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public Dashboard Parent { get; set; }
+    private string? username;
+    private UserModel userModel = new UserModel();
+
+    private async Task ChangeThisEmail()
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        if (username == null || !repo.CheckIfExists(username))
+        {
+            string message = "That username does not exist. Please try again.";
+            Parent.uiMessage.AlertMessage(message);
+            username.Log(method, $"{Logger.invalid} - {username} - {message}");
+        }
+        else if (userModel.Email == null || !Validators.ValidateEmail(userModel.Email))
+        {
+            string message = "'Email' must be in a valid format. Please try again.";
+            Parent.uiMessage.AlertMessage(message);
+            userModel.Log(method, $"{Logger.invalid} - {userModel.Email} - {message}");
+        }
+        else
+        {
+            var thisUser = repo.Retrieve(username);
+            thisUser.Email = userModel.Email;
+            Parent.uiMessage.SuccessMessage($"Email address successfully changed to {thisUser.Email}!");
+            await repo.Update(thisUser);
+            thisUser.Log(method, $"{Logger.success} - {thisUser}'s email address updated to {thisUser.Email}.");
+            userModel = new UserModel();
+            username = string.Empty;
+            Parent.ToggleChangeEmail();
+        }
+    }
+}

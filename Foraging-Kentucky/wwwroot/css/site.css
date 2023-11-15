@@ -44,15 +44,23 @@ a, .btn-link {
 .invalid-input {
     opacity: 1;
     transition: all ease 250ms;
+    margin: 0.5rem;
+    min-height: 1.5rem;
 }
 
 .valid-input {
     opacity: 0;
     transition: all ease 250ms;
+    margin: 0.5rem;
+    min-height: 1.5rem;
 }
 
-.validation-message {
+.error-message {
     color: crimson;
+}
+
+.success-message {
+    color: forestgreen;
 }
 
 .field-collection {

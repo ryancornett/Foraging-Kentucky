@@ -1,54 +1,42 @@
-2023-11-14 09:46:07 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-14 09:46:41 : Foraging_Kentucky.Domain.Item - The operation was successful. - Why U No Work added by Dave.
-2023-11-14 09:47:27 : Foraging_Kentucky.Domain.Item - The operation was successful. - Now Can We Add Another added by Eowyn.
-2023-11-14 09:47:50 : Foraging_Kentucky.Domain.User - An error occurred. - NewUser1 - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: ItemUser.ItemsId, ItemUser.UsersUserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-   at Foraging_Kentucky.Data.UserRepository.Add(User user) in C:\CS\Foraging-Kentucky\Foraging-Kentucky\Data\UserRepository.cs:line 28
-2023-11-14 09:47:50 : Foraging_Kentucky.Domain.User - The operation was successful. - New user NewUser1 added.
-2023-11-14 09:48:18 : Foraging_Kentucky.Domain.User - An error occurred. - NewUser2 - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
- ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'UNIQUE constraint failed: ItemUser.ItemsId, ItemUser.UsersUserId'.
-   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
-   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
-   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
-   at Foraging_Kentucky.Data.UserRepository.Add(User user) in C:\CS\Foraging-Kentucky\Foraging-Kentucky\Data\UserRepository.cs:line 28
-2023-11-14 09:48:18 : Foraging_Kentucky.Domain.User - The operation was successful. - New user NewUser2 added.
-2023-11-14 09:59:36 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-14 10:00:11 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Test_User added.
-2023-11-14 10:00:26 : Foraging_Kentucky.Domain.Item - The operation was successful. - Mulberry added by Test_User.
-2023-11-14 10:01:32 : Foraging_Kentucky.Domain.Item - The operation was successful. - Food Number Two added by Dave.
-2023-11-14 10:02:00 : Foraging_Kentucky.Domain.Item - The operation was successful. - Food Number Three added by Eowyn.
-2023-11-14 10:02:41 : Foraging_Kentucky.Domain.User - The operation was successful. - New user BillyJean added.
-2023-11-14 10:03:03 : Foraging_Kentucky.Domain.Item - The operation was successful. - Is Transient The Answer added by BillyJean.
-2023-11-14 10:10:37 : SeedDatabase - The operation was successful. The database was seeded.
-2023-11-14 10:11:01 : Foraging_Kentucky.Models.AddItemModel - Invalid input. - Black walnut - This wild food item has already been added to our database.
+2023-11-14 18:17:02 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:17:05 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:17:09 :  - Invalid input. -  - That username does not exist. Please try again.
+2023-11-14 18:17:13 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:17:17 :  - Invalid input. -  - That username does not exist. Please try again.
+2023-11-14 18:17:20 :  - Invalid input. -  - The username in the first field does not exist. Please try again.
+2023-11-14 18:17:28 : Foraging_Kentucky.Models.UserModel - Invalid input. - Test_User - 'Email' must be in a valid format. Please try again.
+2023-11-14 18:17:31 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Test_User added.
+2023-11-14 18:34:47 : SeedDatabase - The operation was successful. The database was seeded.
+2023-11-14 18:34:56 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:35:00 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:35:02 :  - Invalid input. -  - That username does not exist. Please try again.
+2023-11-14 18:35:13 :  - Invalid input. -  - That username does not exist. Please try again.
+2023-11-14 18:44:52 : SeedDatabase - The operation was successful. The database was seeded.
+2023-11-14 18:45:02 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:45:05 :  - Invalid input. -  - That username does not exist. Please try again.
+2023-11-14 18:45:07 :  - Invalid input. -  - That username does not exist. Please try again.
+2023-11-14 18:45:09 :  - Invalid input. -  - The username in the first field does not exist. Please try again.
+2023-11-14 18:46:37 :  - Invalid input. -  - The username in the first field does not exist. Please try again.
+2023-11-14 18:51:12 : SeedDatabase - The operation was successful. The database was seeded.
+2023-11-14 18:51:20 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:53:44 : SeedDatabase - The operation was successful. The database was seeded.
+2023-11-14 18:53:51 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:53:54 : Foraging_Kentucky.Models.UserModel - Invalid input. - adfg - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:53:56 : Foraging_Kentucky.Models.UserModel - Invalid input. - adfgadfgadfg - 'Email' must be in a valid format. Please try again.
+2023-11-14 18:54:03 :  - Invalid input. -  - That username does not exist. Please try again.
+2023-11-14 18:54:06 : adfgadfg - Invalid input. - adfgadfg - That username does not exist. Please try again.
+2023-11-14 18:54:10 : adfgadfg - Invalid input. - adfgadfg - That username does not exist. Please try again.
+2023-11-14 18:54:15 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - 'Email' must be in a valid format. Please try again.
+2023-11-14 18:54:23 :  - Invalid input. -  - The username in the first field does not exist. Please try again.
+2023-11-14 18:54:28 :  - Invalid input. -  - The username in the confirmation field does not exist. Please try again.
+2023-11-14 18:56:21 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:57:27 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Test_User added.
+2023-11-14 18:59:41 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 18:59:52 : Foraging_Kentucky.Models.UserModel - An error occurred. - Test_User - User already exists.
+2023-11-14 18:59:55 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Test_User2 added.
+2023-11-14 19:00:53 : Foraging_Kentucky.Domain.User - The operation was successful. - Dave was updated to Davey_.
+2023-11-14 19:01:08 :  - Invalid input. -  - The username in the confirmation field does not exist. Please try again.
+2023-11-14 19:01:13 : Davey_ - The operation was successful. - Davey_'s user profile/entity was deleted.
+2023-11-14 19:03:56 : SeedDatabase - The operation was successful. The database was seeded.
+2023-11-14 19:04:05 : Foraging_Kentucky.Models.UserModel - Invalid input. -  - Please enter a valid username (6-30 characters, no special characters except underscore).
+2023-11-14 19:04:10 : Foraging_Kentucky.Domain.User - The operation was successful. - New user Test_User added.

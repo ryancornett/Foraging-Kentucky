@@ -1,0 +1,27 @@
+﻿<div class="@uiMessageClasses" role="alert">@alertMessage</div>
+
+@code {
+    public string uiMessageClasses = "valid-input";
+    public string? alertMessage;
+
+    public void AlertMessage(string message)
+    {
+        uiMessageClasses = "invalid-input alert-danger";
+        alertMessage = message;
+        StateHasChanged();
+    }
+
+    public void SuccessMessage(string message)
+    {
+        uiMessageClasses = "invalid-input alert-success";
+        alertMessage = message;
+        StateHasChanged();
+    }
+
+    public void ClearAlert()
+    {
+        uiMessageClasses = "valid-input";
+        alertMessage = string.Empty;
+        StateHasChanged();
+    }
+}

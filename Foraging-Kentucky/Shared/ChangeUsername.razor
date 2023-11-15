@@ -1,0 +1,64 @@
+﻿@using Foraging_Kentucky.Common;
+@using Foraging_Kentucky.Data;
+@using Foraging_Kentucky.Domain;
+@using Foraging_Kentucky.Models;
+@using Foraging_Kentucky.Pages;
+@using System.Reflection;
+@inject IRepository<User> repo
+
+<h3>Change Username</h3>
+
+<div class="row my-1">
+    <div class="col-md-4">
+        <label for="username" class="form-label">Current Username</label>
+        <input id="username" placeholder="Current" @bind="@currentUsername" class="form-control" />
+    </div>
+</div>
+
+<EditForm Model="@userModel" OnValidSubmit="ChangeThisUser" class="form-control">
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="email" class="form-label">New Username</label>
+            <InputText id="email" placeholder="New" @bind-Value="@userModel.Name" class="form-control" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn-primary">Update Username</button>
+
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public Dashboard Parent { get; set; }
+    private string? currentUsername;
+    private UserModel userModel = new UserModel();
+
+    private async Task ChangeThisUser()
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        if (currentUsername == null || !repo.CheckIfExists(currentUsername))
+        {
+            string message = "That username does not exist. Please try again.";
+            Parent.uiMessage.AlertMessage(message);
+            currentUsername.Log(method, $"{Logger.invalid} - {currentUsername} - {message}");
+        }
+        else if (userModel.Name == null || !Validators.ValidateUsername(userModel.Name))
+        {
+            string message = "Please enter a valid username (6-30 characters, no special characters except underscore).";
+            Parent.uiMessage.AlertMessage(message);
+            currentUsername.Log(method, $"{Logger.invalid} - {currentUsername} - {message}");
+        }
+        else
+        {
+            var newUsername = repo.Retrieve(currentUsername);
+            newUsername.Name = userModel.Name;
+            Parent.uiMessage.SuccessMessage($"Username successfully changed to {newUsername.Name}!");
+            await repo.Update(newUsername);
+            newUsername.Log(method, $"{Logger.success} - {currentUsername} was updated to {newUsername.Name}.");
+            userModel = new UserModel();
+            currentUsername = string.Empty;
+            Parent.ToggleChangeUsername();
+            }
+        }
+}
