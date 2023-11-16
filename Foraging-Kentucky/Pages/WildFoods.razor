@@ -11,44 +11,78 @@
 
 <AddItem></AddItem>
 
-<p>Wild foods in order of addition.</p>
+<UIMessage @ref="uiMessage" />
 
-@if (items == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Wild Food</th>
-                <th>Food Type</th>
-                <th>Description</th>
-                <th>Edible raw?</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in items)
+<div class="form-inline col-md-3">
+    <div class="form-group mb-2">
+        <label for="selection" class="sr-only">Select Wild Foods to View</label>
+        <select id="selection" name="selection" @bind="selection" class="form-control" required>
+            <option disabled selected value>- select an option -</option>
+            @foreach (var type in ItemOptions.ItemTypes)
             {
-                <tr>
-                    <td>@item.Name</td>
-                    <td>@item.Type</td>
-                    <td>@item.Description.MakeParagraphsFromString()</td>
-                    <td>@item.IsEdibleRaw.ToString()</td>
-                </tr>
+                <option value="@type">@type</option>
             }
-        </tbody>
-    </table>
-}
+            <option value="All">All (alphabetical)</option>
+            <option value="Recent">Recently Added</option>
+            <option value="First">First Added</option>
+        </select>
+    </div>
+    <button class="btn-primary mb-2" @onclick="FilterFoods">Filter Wild Foods</button>
+</div>
+
+<label for="username" class="form-control">Key In Your Username to Save Items</label>
+<textarea id="username" @bind="@username" class="form-control" />
+
+<div class="container">
+    <div class="row">
+        <ItemCards WildFoodsParent="@this" Items="items" />
+    </div>
+</div>
 
 @code {
-    
+
     private List<Item> items;
+    private string selection;
+    public string username;
+    public UIMessage uiMessage;
+    public async Task FilterFoods()
+    {
+        switch (selection)
+        {
+            case "All":
+                items = await repo.RetrieveByAlphabeticalOrder();
+                Logger.Log(selection, "Testing");
+                break;
 
-    public string alertSpan = "no-alert";
+            case "Recent":
+                items = await repo.RetrieveByRecentlyAdded();
+                Logger.Log(selection, "Testing");
+                break;
 
-    public string alert;
+            case "First":
+                items = await repo.RetrieveByFirstAdded();
+                Logger.Log(selection, "Testing");
+                break;
+
+            default:
+                Logger.Log(selection, "Testing");
+                items = await repo.RetrieveByProperty(selection);
+                if (items == null)
+                {
+                    uiMessage.AlertMessage("None found");
+                    ChangeStateAndFadeAlert();
+                }
+                break;
+        }
+        ChangeStateAndFadeAlert();
+    }
+
+    public async Task ChangeStateAndFadeAlert()
+    {
+        StateHasChanged();
+        await Task.Delay(2000);
+        uiMessage.ClearAlert();
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -58,5 +92,6 @@ else
         {
             Logger.Log(methodName, $"{Logger.error} No items were found.");
         }
+        ChangeStateAndFadeAlert();
     }
 }

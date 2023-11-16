@@ -1,0 +1,49 @@
+﻿@using Foraging_Kentucky.Common;
+@using Foraging_Kentucky.Data;
+@using Foraging_Kentucky.Domain;
+@using Foraging_Kentucky.Models;
+@using Foraging_Kentucky.Pages;
+@using System.Reflection;
+@inject IRepository<User> userRepo
+@inject IRepository<Item> itemRepo
+
+<h3>My Foraging List</h3>
+
+<div class="row my-1">
+    <div class="col-md-4">
+        <label for="username" class="form-label">Current Username</label>
+        <input id="username" placeholder="Current" @bind="@username" class="form-control" required />
+    </div>
+</div>
+
+<button class="btn-primary" @onclick="SeeWildFoods">See My Saved Wild Foods</button>
+
+@if (!(items == null))
+{
+    <div class="container">
+        <div class="row">
+            <ItemCards Items="items" />
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Dashboard Parent { get; set; }
+    public string username;
+    public List<Item> items;
+    public User user;
+    private ForageContext context = new ForageContext();
+
+    public async Task<List<Item>> SeeWildFoods()
+    {
+        user = await userRepo.Retrieve(username);
+        if (!(user == null))
+        {
+            items = user.Items.ToList();
+            return items;
+        }
+        else { return items; }
+        StateHasChanged();
+    }
+}

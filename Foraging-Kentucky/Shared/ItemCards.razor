@@ -1,0 +1,50 @@
+﻿@using Foraging_Kentucky.Data
+@using Foraging_Kentucky.Common
+@using Foraging_Kentucky.Domain
+@using Foraging_Kentucky.Pages
+@using System.Reflection;
+@inject IRepository<Item> repo
+@inject IRepository<User> users
+
+@foreach (var item in Items)
+{
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">@item.Name</h3>
+                <img class="card-img" src="@item.ImagePath" alt="Please refer to item description." />
+                <h5 class="card-text">@item.Type</h5>
+                @if (item.IsEdibleRaw)
+                {
+                    <h6 class="card-title alert-success">Is edible raw</h6>
+                }
+                else
+                {
+                    <h6 class="card-subtitle alert-danger">Must be prepared</h6>
+                }
+                <p class="card-text">@item.Description.MakeParagraphsFromString()</p>
+                <div>
+                    <button class="btn btn-primary" @onclick="() => AddItemToUser(item.Name)">Save This</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public WildFoods WildFoodsParent { get; set; }
+
+    [Parameter]
+    public List<Item> Items { get; set; }
+    public async Task AddItemToUser(string itemName)
+    {
+        User user = await users.Retrieve(WildFoodsParent.username);
+        Item item = await repo.Retrieve(itemName);
+        if (user != null && item != null)
+        {
+            users.AddItemToUserList(user, item);
+        }
+        else { WildFoodsParent.uiMessage.AlertMessage("An error occurred. Please be sure to type your username in the Username field"); }
+    }
+}

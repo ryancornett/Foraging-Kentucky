@@ -32,9 +32,9 @@ public class ItemRepository : IRepository<Item>
         }
     }
 
-    public Item Retrieve(string name)
+    public async Task<Item> Retrieve(string name)
     {
-        return _context.Items.FirstOrDefault(item => item.Name == name);
+        return await _context.Items.FirstOrDefaultAsync(item => item.Name == name);
     }
 
     public bool CheckIfExists(string name)
@@ -42,7 +42,7 @@ public class ItemRepository : IRepository<Item>
         return _context.Items.Any(u => u.Name == name);
     }
 
-    public async Task AddUserToList(Item item, User user)
+    public async Task AddUserToItemList(Item item, User user)
     {
         var method = MethodBase.GetCurrentMethod().Name;
         try
@@ -85,5 +85,47 @@ public class ItemRepository : IRepository<Item>
         {
             item.Log(method, $"{Logger.error} - {item.Name} - {ex}");
         }
+    }
+
+    public async Task<List<Item>> RetrieveByProperty(string value)
+    {
+        return await _context.Items
+            .Where(item => item.Type == value)
+            .ToListAsync();
+    }
+
+    public async Task<List<Item>> RetrieveByRecentlyAdded()
+    {
+        return await _context.Items
+            .AsNoTracking()
+            .OrderByDescending(item => item.Created)
+            .ToListAsync();
+    }
+
+    public async Task<List<Item>> RetrieveByFirstAdded()
+    {
+        return await _context.Items
+            .AsNoTracking()
+            .OrderBy(item => item.Created)
+            .ToListAsync();
+    }
+
+    public async Task<List<Item>> RetrieveByAlphabeticalOrder()
+    {
+        return await _context.Items
+            .AsNoTracking()
+            .OrderBy(item => item.Name)
+            .ToListAsync();
+    }
+
+    // NOT NEEDED FOR THIS ENTITY
+    public Task AddItemToUserList(User user, Item item)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task AddUserToRecipeAddedBy(Recipe recipe, User user)
+    {
+        throw new NotImplementedException();
     }
 }

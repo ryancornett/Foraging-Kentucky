@@ -32,9 +32,9 @@ public class RecipeRepository : IRepository<Recipe>
         }
     }
 
-    public Recipe Retrieve(string name)
+    public async Task<Recipe> Retrieve(string name)
     {
-        return _context.Recipes.FirstOrDefault(recipe => recipe.Name == name);
+        return await _context.Recipes.FirstOrDefaultAsync(recipe => recipe.Name == name);
     }
 
     public bool CheckIfExists(string name)
@@ -42,7 +42,7 @@ public class RecipeRepository : IRepository<Recipe>
         return _context.Recipes.Any(u => u.Name == name);
     }
 
-    public async Task AddUserToList(Recipe recipe, User user)
+    public async Task AddUserToRecipeAddedBy(Recipe recipe, User user)
     {
         var method = MethodBase.GetCurrentMethod().Name;
         try
@@ -85,5 +85,37 @@ public class RecipeRepository : IRepository<Recipe>
         {
             recipe.Log(method, $"{Logger.error} - {recipe.Name} - {ex}");
         }
+    }
+
+    public async Task<List<Recipe>> RetrieveByProperty(string value)
+    {
+        return await _context.Recipes
+            .Where(recipe => recipe.WildFoodIncluded.Name == value)
+            .ToListAsync();
+    }
+
+    public Task<List<Recipe>> RetrieveByRecentlyAdded()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<List<Recipe>> RetrieveByFirstAdded()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<List<Recipe>> RetrieveByAlphabeticalOrder()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task AddUserToItemList(Item item, User user)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task AddItemToUserList(User user, Item item)
+    {
+        throw new NotImplementedException();
     }
 }

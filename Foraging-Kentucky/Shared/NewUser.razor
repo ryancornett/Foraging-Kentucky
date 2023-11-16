@@ -63,7 +63,7 @@
                 await repo.Add(userEntity);
                 userEntity.Log(method, $"{Logger.success} - New user {userEntity.Name} added.");
                 newUser = new UserModel();
-                Parent.ToggleCreateNewUser();
+                Parent.ToggleUserComps(1);
             }
         }
     }

@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <button type="submit" class="btn-primary">Update Username</button>
+    <button type="submit" class="btn-primary">Update Email Address</button>
 
 </EditForm>
 
@@ -51,14 +51,14 @@
         }
         else
         {
-            var thisUser = repo.Retrieve(username);
+            var thisUser = await repo.Retrieve(username);
             thisUser.Email = userModel.Email;
             Parent.uiMessage.SuccessMessage($"Email address successfully changed to {thisUser.Email}!");
             await repo.Update(thisUser);
             thisUser.Log(method, $"{Logger.success} - {thisUser}'s email address updated to {thisUser.Email}.");
             userModel = new UserModel();
             username = string.Empty;
-            Parent.ToggleChangeEmail();
+            Parent.ToggleUserComps(3);
         }
     }
 }

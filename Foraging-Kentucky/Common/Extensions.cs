@@ -27,7 +27,6 @@ public static class Extensions
                 }
             }
         }
-
         return string.Join(" ", words);
     }
 

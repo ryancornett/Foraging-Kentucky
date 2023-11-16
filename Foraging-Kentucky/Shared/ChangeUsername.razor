@@ -51,14 +51,14 @@
         }
         else
         {
-            var newUsername = repo.Retrieve(currentUsername);
+            var newUsername = await repo.Retrieve(currentUsername);
             newUsername.Name = userModel.Name;
             Parent.uiMessage.SuccessMessage($"Username successfully changed to {newUsername.Name}!");
             await repo.Update(newUsername);
             newUsername.Log(method, $"{Logger.success} - {currentUsername} was updated to {newUsername.Name}.");
             userModel = new UserModel();
             currentUsername = string.Empty;
-            Parent.ToggleChangeUsername();
+            Parent.ToggleUserComps(2);
             }
         }
 }

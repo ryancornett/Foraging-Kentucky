@@ -9,23 +9,27 @@
 <PageTitle>Dashboard</PageTitle>
 
 <h1>Dashboard</h1>
-<p>Create or edit your username, supply your email address, or delete your profile.</p>
+<p>Create or edit your username, update your email address, or delete your profile.</p>
 
-<div class="btn-group">
+<div class="btn-group" role="group" aria-label="Edit user group">
     <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="ToggleCreateNewUser">Register</button>
+        <button class="btn-close-white" @onclick="() => ToggleUserComps(1)">Register</button>
     </div>
 
     <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="ToggleChangeUsername">Change Username</button>
+        <button class="btn-close-white" @onclick="() => ToggleUserComps(5)">My Foraging</button>
     </div>
 
     <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="ToggleChangeEmail">Change Email</button>
+        <button class="btn-close-white" @onclick="() => ToggleUserComps(2)">Change Username</button>
     </div>
 
     <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="ToggleDeleteProfile">Delete Profile</button>
+        <button class="btn-close-white" @onclick="() => ToggleUserComps(3)">Change Email</button>
+    </div>
+
+    <div class="col-mx-2 flex-row">
+        <button class="btn-close-white" @onclick="() => ToggleUserComps(4)">Delete Profile</button>
     </div>
 </div>
 
@@ -35,9 +39,13 @@
 {
     <NewUser Parent ="@this" />
 }
+@if (isMyForagingVisible)
+{
+    <MyForaging Parent="@this" />
+}
 @if (isChangeUsernameVisible)
 {
-    <ChangeUsername Parent ="@this" />
+    <ChangeUsername Parent="@this" />
 }
 @if (isChangeEmailVisible)
 {
@@ -51,60 +59,55 @@
 @code {
     public UIMessage uiMessage;
     public bool isCreateNewUserVisible = false;
+    public bool isMyForagingVisible = false;
     private bool isChangeUsernameVisible = false;
     private bool isChangeEmailVisible = false;
     private bool isDeleteProfileVisible = false;
 
-    public async Task ToggleCreateNewUser()
+    public async Task ToggleUserComps(int buttonId)
     {
-        if (isCreateNewUserVisible) { isCreateNewUserVisible = false; }
-        else
+        switch (buttonId)
         {
-            isCreateNewUserVisible = true;
-            isChangeUsernameVisible = false;
-            isChangeEmailVisible = false;
-            isDeleteProfileVisible = false;
-        }
-        RemoveComponentAndFadeAlert();
-    }
+            case 1:
+                isCreateNewUserVisible = !isCreateNewUserVisible;
+                isMyForagingVisible = false;
+                isChangeUsernameVisible = false;
+                isChangeEmailVisible = false;
+                isDeleteProfileVisible = false;
+                break;
 
-    public async Task ToggleChangeUsername()
-    {
-        if (isChangeUsernameVisible) { isChangeUsernameVisible = false; }
-        else
-        {
-            isChangeUsernameVisible = true;
-            isCreateNewUserVisible = false;
-            isChangeEmailVisible = false;
-            isDeleteProfileVisible = false;
-        }
-        RemoveComponentAndFadeAlert();
-    }
+            case 2:
+                isChangeUsernameVisible = !isChangeUsernameVisible;
+                isCreateNewUserVisible = false;
+                isMyForagingVisible = false;
+                isChangeEmailVisible = false;
+                isDeleteProfileVisible = false;
+                break;
 
-    public async Task ToggleChangeEmail()
-    {
-        if (isChangeEmailVisible) { isChangeEmailVisible = false; }
-        else
-        {
-            isChangeEmailVisible = true;
-            isCreateNewUserVisible = false;
-            isChangeUsernameVisible = false;
-            isDeleteProfileVisible = false;
-        }
-        RemoveComponentAndFadeAlert();
-    }
+            case 3:
+                isChangeEmailVisible = !isChangeEmailVisible;
+                isCreateNewUserVisible = false;
+                isMyForagingVisible = false;
+                isChangeUsernameVisible = false;
+                isDeleteProfileVisible = false;
+                break;
 
-    public async Task ToggleDeleteProfile()
-    {
-        if (isDeleteProfileVisible) { isDeleteProfileVisible = false; }
-        else
-        {
-            isDeleteProfileVisible = true;
-            isCreateNewUserVisible = false;
-            isChangeUsernameVisible = false;
-            isChangeEmailVisible = false;
+            case 4:
+                isDeleteProfileVisible = !isDeleteProfileVisible;
+                isCreateNewUserVisible = false;
+                isMyForagingVisible = false;
+                isChangeUsernameVisible = false;
+                isChangeEmailVisible = false;
+                break;
+            case 5:
+                isMyForagingVisible = !isMyForagingVisible;
+                isCreateNewUserVisible = false;
+                isChangeUsernameVisible = false;
+                isChangeEmailVisible = false;
+                isDeleteProfileVisible = false;
+                break;
         }
-        RemoveComponentAndFadeAlert();
+        await RemoveComponentAndFadeAlert();
     }
 
     public async Task RemoveComponentAndFadeAlert()

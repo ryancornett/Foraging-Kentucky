@@ -5,10 +5,10 @@ html, body {
     font-family: 'Rubik', Arial, sans-serif;
     --regular-font-weight: 400;
     --bold-font-weight: 600;
-    --dark: #363062;
-    --medium: #435585;
-    --light: #818FB4;
-    --lightest: #a3aFd6;
+    --dark-primary: #0D6E5D;
+    --dark-gray: #545454;
+    --light-primary: #DBF4AD;
+    --light-gray: #A0AAB2;
 }
 
 .navbar-brand-fk {
@@ -25,8 +25,16 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: var(--dark-primary);
+    border-color: var(--dark-primary);
+    transition: all ease 350ms;
+}
+
+.btn-primary:hover {
+    color: #000;
+    background-color: var(--light-gray);
+    border-color: var(--light-gray);
+    transition: all ease 350ms;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -105,7 +113,7 @@ a, .btn-link {
 
 
 footer {
-    background-color: var(--dark);
+    background-color: var(--dark-primary);
     color: white;
     padding: 2rem;
 }
@@ -148,7 +156,7 @@ footer {
 }
 
     .footer-links:hover {
-        color: var(--lightest);
+        color: var(--light-primary);
         transition: all ease 350ms;
     }
 

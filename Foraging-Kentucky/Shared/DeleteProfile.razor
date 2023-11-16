@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <button type="submit" class="btn-primary">Delete My Profile</button>
+    <button type="submit" class="btn-danger">Delete My Profile</button>
 
 </EditForm>
 
@@ -51,13 +51,13 @@
         }
         else
         {
-            var thisUser = repo.Retrieve(username);
+            var thisUser = await repo.Retrieve(username);
             await repo.Delete(thisUser);
             Parent.uiMessage.SuccessMessage("User profile deleted. We hope you'll consider joining again.");
             username.Log(method, $"{Logger.success} - {username}'s user profile/entity was deleted.");
             userModel = new UserModel();
             username = string.Empty;
-            Parent.ToggleDeleteProfile();
+            Parent.ToggleUserComps(4);
         }
     }
 }

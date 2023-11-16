@@ -60,12 +60,12 @@
 </EditForm>
 
 @code {
-    public AddItemModel newItem = new AddItemModel();
+    public ItemModel newItem = new ItemModel();
     private string username;
-    private void AddThisItem()
+    private async Task AddThisItem()
     {
         var method = MethodBase.GetCurrentMethod().Name;
-        User user = users.Retrieve(username);
+        User user = await users.Retrieve(username);
         if (user == null) { AlertMessage("Username does not exist."); }
         else
         {
@@ -86,11 +86,11 @@
             else
             {
                 var itemEntity = new Item(newItem.Name.CapitalizeEachWord()) { Type = newItem.Type, Description = newItem.Description, IsEdibleRaw = newItem.IsEdibleRaw };
-                repo.Add(itemEntity);
-                repo.AddUserToList(itemEntity, user);
+                await repo.Add(itemEntity);
+                await repo.AddUserToItemList(itemEntity, user);
                 ClearAlert();
                 itemEntity.Log(method, $"{Logger.success} - {itemEntity.Name} added by {user.Name}.");
-                newItem = new AddItemModel();
+                newItem = new ItemModel();
                 username = string.Empty;
             }
         }
