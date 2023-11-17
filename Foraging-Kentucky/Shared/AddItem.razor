@@ -56,6 +56,13 @@
         </div>
     </div>
 
+    <div class="row my-1">
+        <div class="col-md-4">
+            <label for="name" class="form-label">Image URL (do not change if you have no image)</label>
+            <InputText id="name" placeholder="Wild food name" @bind-Value="newItem.ImagePath" class="form-control" />
+        </div>
+    </div>
+
     <button type="submit" class="btn-primary">Add new wild food</button>
 </EditForm>
 
@@ -85,7 +92,7 @@
             }
             else
             {
-                var itemEntity = new Item(newItem.Name.CapitalizeEachWord()) { Type = newItem.Type, Description = newItem.Description, IsEdibleRaw = newItem.IsEdibleRaw };
+                var itemEntity = new Item(newItem.Name.CapitalizeEachWord()) { Type = newItem.Type, Description = newItem.Description, IsEdibleRaw = newItem.IsEdibleRaw, ImagePath = newItem.ImagePath };
                 await repo.Add(itemEntity);
                 await repo.AddUserToItemList(itemEntity, user);
                 ClearAlert();

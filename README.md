@@ -20,13 +20,46 @@ This is a Blazor Server App that allows users to add wild edible food items (nut
  3. Then enter *dotnet ef database update* 
  4. On building, *foraging-kentucky.db* will be created on your desktop (if running on a Mac, check ForageContext.cs to ensure the path works)
  5. You might have to change the build from *https* to *http* to run the app in your browser
- 6. Use some or all of these suggested Items, Users, or Recipes to interact with the app/database:
-    - #### Items
-    - 
-    - #### Users
-    - 
-    - #### Recipes 
-    - 
+ 6. Take note of the **Clear and/or Seed Database** region (lines 10-16) of Program.cs and comment out/in those methods for the behavior necessary.
+ 7. Use dummy input or these wild food items to interact with the app/database:
+ ___
+    - Name: "Persimmon" 
+    - Type: "Fruit" 
+    - Description: "Large as wild fruits go, persimmons are roughly spherical, normally a little wider than long and flattened or slightly depressed on the stem end where the tough, four-lobed calyx leftover from the flower remains attached.
+    
+    The skin is thin and smooth with a bloom; it is wrinkly, soft, and dull orange when ripe. SOFT is a keyword here--you don't want to eat an unripe persimmon. Before ripening, the persimmon is astringent and will pucker your mouth like no other native fruit if eaten unripe.
+
+    Then why risk it? Because a ripe persimmon is one of the sweetest fruits on Earth. The scientific name, Diospyros virginiana, means \"Fruit of the Gods.\" It is a well-earned moniker." 
+    - Is Edible Raw? "Yes" 
+    - Image URL: "images/items/persimmon.webp"
+___
+    - Name: "Poke" 
+    - Type: "Vegetable" 
+    - Description: "Euell Gibbons thought poke \"is probably the best known and most widely used wild vegetable in America.\" It's a large, long-lived perennial shrub with a fleshy taproot. Older plants have several stems clustered at the root crown.
+    
+    Typically 5-7 feet tall at maturity with outer stems drooping under their own weight. Stems are smooth and hairless, green as shoots but purplish when mature.
+    
+    Only collect young leaves and PREPARE THEM PROPERLY. Poke contains toxic chemicals that are removed by boiling in water. Seek proper preparation procedures elsewhere. But note that poke has been safely prepared and consumed for generations, and is worth the trouble as a superb, hearty, and nutritious addition to your diet." 
+    - Is Edible Raw? "No" 
+    - Image URL: "images/items/poke.webp"
+___
+    - Name: "Hickory" 
+    - Type: "Nut" 
+    - Description: "Hickory nuts are inside a hull that separates fairly easily from the shell after falling from the tree in early autumn. There are several varieties, with the shagbark producing the most desirable nut.
+    
+    Though sweeter and tastier than its cousin the pecan, hickory nuts take longer to bear and their nut meat is harder to extract. They certainly worth the effort however, and substituted for pecans in your favorite pecan pie recipe, they will blow your mind.
+    
+    Another option is to grind or smash together the shells with the nut meat and \"brew\" hickory nut ambrosia, which is akin to a creamy, sweetened tea or coffee." 
+    - Is Edible Raw? "Yes" 
+    - Image URL: "images/items/hickory.webp"
+
+### Next Steps
+- Make app an API, which I think is better suited for the UX.
+- Integrate real user authentication and authorization, which I did not configure the app for initially.
+- Remove the option for users to add new wild foods.
+- Include the option for users to upload images of wild foods.
+- ... Which means image formatting and normalization needs to be included.
+- Wild food items need more properties to be truly useful for users: scientific name, seasonal availability, geographic range, habitat, identification, image alt text, and how to prepare foods not edible raw.
 
 ### Acknowledgements 
 In addition to prior knowledge of my own gleaned from years traipsing through the woods of Eastern Kentucky learning plants, information for wild edibles was obtained from the following sources I endorse wholeheartedly:

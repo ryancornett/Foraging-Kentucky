@@ -13,7 +13,8 @@ public class ForageContext : DbContext
     {
         var folder = Environment.SpecialFolder.Desktop;
         var path = Environment.GetFolderPath(folder);
-        DbPath = Path.Join(path, "/db/forage-kentucky.db");
+        DbPath = Path.Join(path, "/forage-kentucky.db");
+        // DbPath = Path.Join(path, "/db/forage-kentucky.db");
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
