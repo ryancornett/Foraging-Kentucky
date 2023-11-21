@@ -5,7 +5,7 @@ namespace Foraging_Kentucky.Domain
 {
     public static class ItemOptions
     {
-        public static readonly string[] ItemTypes = new string[] { "Fruit", "Mushroom", "Nut", "Vegetable" };
+        public static readonly string[] ItemTypes = new string[] { "Fruit", "Mushroom", "Nut", "Vegetable", "Other" };
 
     }
 }

@@ -1,9 +1,17 @@
-﻿@page "/"
+﻿@using Foraging_Kentucky.Common;
+@page "/"
 
 <PageTitle>Index</PageTitle>
 
 <h1>Foraging Kentucky</h1>
 <h3>Ryan Cornett's Capstone Project | Code:You Software Development Pathway | Fall 2023</h3>
 
-Welcome!
+<div>@text</div>
 
+@code {
+    private MarkupString text;
+    protected override async Task OnInitializedAsync()
+    {
+        text = Info.ReadMe;
+    }
+}

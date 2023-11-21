@@ -1,10 +1,12 @@
-﻿@page "/contact"
+﻿@using Foraging_Kentucky.Common;
+@page "/contact"
 
-<h3>Contact</h3>
-
-<h5>Please send all comments, questions, tips, issues, idea, etc. to ryandcornett (at) gmail (dot) com.</h5>
-<h6>We look forward to hearing from you!</h6>
+<div>@text</div>
 
 @code {
-
+    private MarkupString text;
+    protected override async Task OnInitializedAsync()
+    {
+        text = Info.Contact;
+    }
 }

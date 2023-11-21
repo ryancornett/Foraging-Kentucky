@@ -23,9 +23,12 @@
                     <h6 class="card-subtitle alert-danger">Must be prepared</h6>
                 }
                 <p class="card-text">@item.Description.MakeParagraphsFromString()</p>
-                <div>
-                    <button class="btn btn-primary" @onclick="() => AddItemToUser(item.Name)">Save This</button>
-                </div>
+                @if (ShowSaveThis)
+                {
+                    <div>
+                        <button class="btn btn-primary shadow-none" @onclick="() => AddItemToUser(item.Name)">Save This</button>
+                    </div>
+                }
             </div>
         </div>
     </div>
@@ -37,6 +40,10 @@
 
     [Parameter]
     public List<Item> Items { get; set; }
+
+    [Parameter]
+    public bool ShowSaveThis { get; set; }
+
     public async Task AddItemToUser(string itemName)
     {
         User user = await users.Retrieve(WildFoodsParent.username);

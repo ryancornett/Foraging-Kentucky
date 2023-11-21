@@ -9,7 +9,7 @@ public class Program
     {
         #region Clear and/or Seed Database
         // Resets the database when starting the program; comment out to truly persist data
-        ClearDb.ClearDatabase();
+        // ClearDb.ClearDatabase();
 
         // Seeds the database when starting the program; comment out to avoid identitcal data entries
         SeedDb.SeedAndVerify();

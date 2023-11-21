@@ -11,25 +11,25 @@
 <h1>Dashboard</h1>
 <p>Create or edit your username, update your email address, or delete your profile.</p>
 
-<div class="btn-group" role="group" aria-label="Edit user group">
-    <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="() => ToggleUserComps(1)">Register</button>
+<div class="btn-group d-flex" role="group" aria-label="Edit user group">
+    <div class="mx-2">
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(1)"><i class="fas fa-user-plus"></i> Register</button>
     </div>
 
-    <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="() => ToggleUserComps(5)">My Foraging</button>
+    <div class="mx-2">
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(5)"><i class="fas fa-list"></i> My Saved Wild Foods</button>
     </div>
 
-    <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="() => ToggleUserComps(2)">Change Username</button>
+    <div class="mx-2">
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(2)"><i class="fas fa-user-pen"></i> Change Username</button>
     </div>
 
-    <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="() => ToggleUserComps(3)">Change Email</button>
+    <div class="mx-2">
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(3)"><i class="fas fa-envelope"></i> Change Email</button>
     </div>
 
-    <div class="col-mx-2 flex-row">
-        <button class="btn-close-white" @onclick="() => ToggleUserComps(4)">Delete Profile</button>
+    <div class="mx-2">
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(4)"><i class="fas fa-trash"></i> Delete Profile</button>
     </div>
 </div>
 

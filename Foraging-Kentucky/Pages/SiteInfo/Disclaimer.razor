@@ -1,47 +1,12 @@
-﻿@page "/disclaimer"
+﻿@using Foraging_Kentucky.Common;
+@page "/disclaimer"
 
-<h3>Disclaimer</h3>
-
-<p>Foraging Kentucky is a website that provides information about wild foods available in the state of Kentucky and tips on responsible foraging. While we strive to offer accurate and helpful information, it is crucial to understand and acknowledge that foraging carries inherent risks and responsibilities. This disclaimer is intended to emphasize user safety and relieve and absolve the website creator and associated parties from any liability related to irresponsible use of the information provided on this website.</p>
-
-<p><b>1. Assumption of Responsibility</b></p>
-
-<p>By using the information on Foraging Kentucky, you acknowledge and assume full responsibility for your actions while foraging for wild foods. It is essential to understand that foraging involves inherent risks, such as misidentification of plants, allergic reactions, or environmental hazards.</p>
-
-<p><b>2. Accuracy of Information</b></p>
-
-<p>We make every effort to provide accurate and up-to-date information on the website. However, the content on Foraging Kentucky should be considered as general guidance. It is essential to verify any information and consult additional reputable sources to ensure the safety and accuracy of your foraging activities.</p>
-
-<p><b>3. Plant Identification</b></p>
-
-<p>Foraging for wild foods requires a high degree of plant identification skills. Misidentification can lead to health risks. Users are responsible for correctly identifying plants and should seek training or consult with experts in botany or foraging before consuming any wild plants.</p>
-
-<p><b>4. Safety Precautions</b></p>
-
-<p>Foraging Kentucky provides information on best practices for safe foraging. Users are responsible for taking all necessary safety precautions, including proper clothing, tools, and equipment, to minimize the risks associated with foraging activities.</p>
-
-<p><b>5. Legal Compliance</b></p>
-
-<p>Foraging may be subject to state and local laws and regulations. Users must ensure that they comply with all relevant laws and obtain any required permits or permissions before foraging in a particular area.</p>
-
-<p><b>6. Allergic Reactions and Health Risks</b></p>
-
-<p>Foraging Kentucky does not provide medical advice. Users should be aware of potential allergic reactions and health risks associated with consuming wild foods. If you have known allergies or health conditions, consult a healthcare professional before consuming wild plants.</p>
-
-<p><b>7. Liability Waiver</b></p>
-
-<p>By using Foraging Kentucky, you agree to waive and absolve the website creator, its operators, employees, and any affiliated parties from any liability, claims, demands, or damages that may arise from your use of the information provided on this website. This includes but is not limited to injuries, illnesses, property damage, or any other consequences related to foraging activities.</p>
-
-<p><b>8. Ongoing Learning and Responsible Foraging</b></p>
-
-<p>Foraging Kentucky encourages users to engage in ongoing learning and to forage responsibly. We are committed to promoting the safe and sustainable practice of foraging, and we are not responsible for the actions or decisions made by users.</p>
-
-<p><b>9. Contact Us</b></p>
-
-<p>If you have any questions or concerns about this disclaimer, please contact us <a href="contact">here</a>. Your safety and responsible foraging are our top priorities.</p>
-
-<p>Foraging Kentucky exists to provide information and foster a deeper appreciation for the natural world. We hope that you find our content helpful and that you enjoy the foraging experience while taking responsibility for your actions and safety.</p>
+<div>@text</div>
 
 @code {
-
+    private MarkupString text;
+    protected override async Task OnInitializedAsync()
+    {
+        text = Info.Disclaimer;
+    }
 }

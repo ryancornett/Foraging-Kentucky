@@ -1,63 +1,12 @@
-﻿@page "/privacy"
-<h3>Privacy Policy</h3>
+﻿@using Foraging_Kentucky.Common;
+@page "/privacy"
 
-<p>Welcome to Foraging Kentucky ("we," "our," or "us"). At Foraging Kentucky, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines our practices concerning the collection, use, and disclosure of your information when you use our website (the "Site").</p>
-
-<p>By accessing or using Foraging Kentucky, you agree to the terms and practices described in this Privacy Policy. If you do not agree with these terms, please do not use our Site.</p>
-
-<p>
-    <b>1. Information We Collect</b>
-</p>
-
-<p>We collect two types of information when you use Foraging Kentucky:</p>
-
-<p><b>a. User-Provided Information:</b></p>
-
-<ul>
-    <li><b>Username:</b> When you create an account on Foraging Kentucky, you provide us with a username. This username is visible to other users of the site.</li>
-
-    <li><b>Email Address:</b> We collect your email address during the registration process. Your email address is never sold or given out to third parties.</li>
-</ul>
-
-<p><b>b. Automatically Collected Information:</b></p>
-
-<p>Log Data: Our servers automatically collect certain information when you access our Site. This information may include your IP address, browser type, the pages you visit, the time and date of your visit, and the time spent on those pages.</p>
-
-        <p><b>2. How We Use Your Information</b></p>
-
-<p>We use the information we collect for the following purposes:</p>
-
-<ul>
-    <li>To provide, maintain, and improve our services.</li>
-    <li>To communicate with you, including responding to your requests and inquiries.</li>
-    <li>To monitor and analyze Site usage and trends.</li>
-    <li>To personalize your experience on Foraging Kentucky.</li>
-    <li>To protect the security and integrity of our Site.</li>
-    <li>To comply with legal obligations and resolve disputes.</li>
-</ul>
-
-                <p><b>3. Information Sharing</b></p>
-
-<p>We do not sell, trade, or share your email address with third parties. However, other users on Foraging Kentucky may see your username, as it is displayed in public areas of the Site, such as forums and comments.</p>
-
-                        <p><b>4. Security</b></p>
-
-<p>We take the security of your information seriously and employ reasonable measures to protect it from unauthorized access, disclosure, alteration, and destruction. While we make efforts to protect your personal information, we cannot guarantee its absolute security.</p>
-
-                                <p><b>5. Your Choices</b></p>
-
-<p>You have certain rights regarding your personal information. You may access, update, correct, or delete your account information at any time. If you wish to delete your account, please contact us <a href="contact" target="_blank">here</a>.</p>
-
-                                        <p><b>6. Changes to this Privacy Policy</b></p>
-
-<p>We may update this Privacy Policy from time to time to reflect changes to our practices or for other operational, legal, or regulatory reasons. If we make changes, we will post the revised policy on this page and update the "Last Updated" date.</p>
-
-<p><b>7. Contact Us</b></p>
-
-<p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us <a href="contact" target="_blank">here</a>.</p>
-
-<p>Thank you for using Foraging Kentucky. We appreciate your trust in us and are committed to protecting your privacy and personal information.</p>
+<div>@text</div>
 
 @code {
-
+    private MarkupString text;
+    protected override async Task OnInitializedAsync()
+    {
+        text = Info.Privacy;
+    }
 }

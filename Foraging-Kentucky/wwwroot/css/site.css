@@ -1,13 +1,13 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;1,400&display=swap');
 
-html, body {
+body, html, :root {
     font-family: 'Rubik', Arial, sans-serif;
     --regular-font-weight: 400;
     --bold-font-weight: 600;
-    --dark-primary: #0D6E5D;
+    --primary-dark: #0D6E5D;
     --dark-gray: #545454;
-    --light-primary: #DBF4AD;
+    --secondary-light: #DBF4AD;
     --light-gray: #A0AAB2;
 }
 
@@ -25,20 +25,26 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
-    background-color: var(--dark-primary);
-    border-color: var(--dark-primary);
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
     transition: all ease 350ms;
 }
 
-.btn-primary:hover {
-    color: #000;
-    background-color: var(--light-gray);
-    border-color: var(--light-gray);
-    transition: all ease 350ms;
-}
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
+        color: #000;
+        background-color: var(--light-gray);
+        border-color: var(--light-gray);
+        transition: all ease 350ms;
+    }
+
+        .btn-primary:active:hover, .btn-primary:focus:hover, .btn-primary:active:focus:hover {
+            color: #fff;
+            background-color: var(--dark-gray);
+            border-color: var(--light-gray);
+        }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    background-color: var(--secondary-light);
 }
 
 .content {
@@ -113,7 +119,7 @@ a, .btn-link {
 
 
 footer {
-    background-color: var(--dark-primary);
+    background-color: var(--primary-dark);
     color: white;
     padding: 2rem;
 }
@@ -156,7 +162,7 @@ footer {
 }
 
     .footer-links:hover {
-        color: var(--light-primary);
+        color: var(--secondary-light);
         transition: all ease 350ms;
     }
 

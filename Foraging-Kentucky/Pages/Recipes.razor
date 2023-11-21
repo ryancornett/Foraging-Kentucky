@@ -40,17 +40,6 @@ else
             }
         </tbody>
     </table>
-
-    <h3>Food Types</h3>
-
-    <select @bind="selectedType">
-        @foreach (var type in ItemOptions.ItemTypes)
-        {
-            <option value="@type">@type</option>
-        }
-    </select>
-
-    <p>You selected: @selectedType</p>
 }
 
 @code {

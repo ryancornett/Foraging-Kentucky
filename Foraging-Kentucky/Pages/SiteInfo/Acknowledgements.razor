@@ -1,17 +1,12 @@
-﻿@page "/acknowledgements"
+﻿@using Foraging_Kentucky.Common;
+@page "/acknowledgements"
 
-<h3>Acknowledgements</h3>
+<div>@text</div>
 
-<h6>In addition to prior knowledge of my own gleaned from years traipsing through the woods of Eastern Kentucky learning plants, information for wild edibles was obtained from the following sources Foraging Kentucky endorses wholeheartedly:</h6>
-
-<ul>
-    <li><b>Mushrooms of West Virginia and the Central Appalachians</b> by William C. Roody; The University Press of Kentucky, 2002.</li>
-    <li><b>The Forager's Harvest: A Guide to Identifying, Harvesting, and Preparing Edible Wild Plants</b> by Samuel Thayer; Forager's Harvest Press, 2006</li>
-    <li><b>Nature's Garden: A Guide to Identifying, Harvesting, and Preparing Edible Wild Plants</b> by Samuel Thayer; Forager's Harvest Press, 2010</li>
-    <li><b>Pawpaw: In Search of America’s Forgotten Fruit</b> by Andrew Moore; Chelsea Green Publishing, 2015</li>
-    <li><b>Incredible Wild Edibles</b> by Samuel Thayer; Forager's Harvest Press, 2017</li>
-    <li><b>Field Guide to Edible Wild Plants</b> by Samuel Thayer; Forager's Harvest Press, 2023</li>
-</ul>
 @code {
-
+    private MarkupString text;
+    protected override async Task OnInitializedAsync()
+    {
+        text = Info.Acknowledgements;
+    }
 }

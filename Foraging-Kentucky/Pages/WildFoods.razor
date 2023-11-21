@@ -8,34 +8,36 @@
 @inject IRepository<User> users
 
 <PageTitle>Wild Foods</PageTitle>
-
-<AddItem></AddItem>
+<h3>Wild Foods</h3>
 
 <UIMessage @ref="uiMessage" />
 
-<div class="form-inline col-md-3">
-    <div class="form-group mb-2">
-        <label for="selection" class="sr-only">Select Wild Foods to View</label>
-        <select id="selection" name="selection" @bind="selection" class="form-control" required>
-            <option disabled selected value>- select an option -</option>
-            @foreach (var type in ItemOptions.ItemTypes)
-            {
-                <option value="@type">@type</option>
-            }
-            <option value="All">All (alphabetical)</option>
-            <option value="Recent">Recently Added</option>
-            <option value="First">First Added</option>
-        </select>
+<div class="row">
+    <div class="form-inline col-md-3">
+        <span><label for="username" class="form-control">Enter Username to Save Items</label></span>
+        <input type="text" id="username" @bind="@username" class="form-control" placeholder="Username" />
     </div>
-    <button class="btn-primary mb-2" @onclick="FilterFoods">Filter Wild Foods</button>
+    <div class="form-inline col-md-3">
+        <div class="form-group mb-2">
+            <label for="selection" class="sr-only">Select Wild Foods to View</label>
+            <select id="selection" name="selection" @bind="selection" class="form-control" required>
+                <option disabled selected value>- select an option -</option>
+                @foreach (var type in ItemOptions.ItemTypes)
+                {
+                    <option value="@type">@type</option>
+                }
+                <option value="All">All (alphabetical)</option>
+                <option value="Recent">Recently Added</option>
+                <option value="First">First Added</option>
+            </select>
+        </div>
+        <button class="btn-primary mb-2 shadow-none" @onclick="FilterFoods">Filter Wild Foods</button>
+    </div>
 </div>
-
-<label for="username" class="form-control">Key In Your Username to Save Items</label>
-<textarea id="username" @bind="@username" class="form-control" />
 
 <div class="container">
     <div class="row">
-        <ItemCards WildFoodsParent="@this" Items="items" />
+        <ItemCards WildFoodsParent="@this" Items="items" ShowSaveThis=true />
     </div>
 </div>
 

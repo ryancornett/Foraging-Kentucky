@@ -12,7 +12,7 @@ public class Item
     public List<User> Users { get; set; }
     public DateTime Created { get; set; } = DateTime.Now;
     public DateTime Updated { get; set; } = DateTime.Now;
-    public string ImagePath { get; set; } = "images/no-image.webp";
+    public string ImagePath { get; set; }
     public Item(string Name)
     {
         this.Name = Name;

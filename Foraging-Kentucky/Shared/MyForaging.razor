@@ -7,7 +7,7 @@
 @inject IRepository<User> userRepo
 @inject IRepository<Item> itemRepo
 
-<h3>My Foraging List</h3>
+<h3>My Wild Foods</h3>
 
 <div class="row my-1">
     <div class="col-md-4">
@@ -16,13 +16,13 @@
     </div>
 </div>
 
-<button class="btn-primary" @onclick="SeeWildFoods">See My Saved Wild Foods</button>
+<button class="btn-primary shadow-none" @onclick="SeeWildFoods">See My Saved Wild Foods</button>
 
 @if (!(items == null))
 {
     <div class="container">
         <div class="row">
-            <ItemCards Items="items" />
+            <ItemCards Items="items" ShowSaveThis=false />
         </div>
     </div>
 }

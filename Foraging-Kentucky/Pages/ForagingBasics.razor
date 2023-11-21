@@ -1,50 +1,12 @@
-﻿@page "/foraging-basics"
+﻿@using Foraging_Kentucky.Common;
+@page "/foraging-basics"
 
-<div class="container flex-column w-75 my-4 align-content-center">
-    <div class="row p-2">
-        <h3>Foraging Basics</h3>
-
-        <h5>First Off--Why Foraging?</h5>
-
-        <p>
-            Foraging offers a plethora of health benefits, connecting individuals with fresh, nutrient-rich foods straight from nature. Wild plants often boast higher nutritional content than their cultivated counterparts, providing a diverse array of vitamins, minerals, and antioxidants. Incorporating foraged foods into your diet introduces a variety of flavors and textures, contributing to a more well-rounded and enjoyable culinary experience. Additionally, the act of foraging itself promotes physical activity and outdoor exploration, fostering a healthier and more active lifestyle.
-        </p>
-
-        <p>
-            Beyond personal health, foraging extends its benefits to the community, the pocketbook, and the environment. Foragers often build connections with family members who accompany them and within local foraging communities by sharing knowledge, experiences, and their harvests. This sense of community fosters a deeper appreciation for nature and its resources. Foraging also presents an opportunity for individuals and families to save money on grocery bills, as wild foods are freely available in many natural spaces. Additionally, by sourcing food locally and sustainably, foragers contribute to reducing the environmental impact associated with conventional agriculture, such as transportation, packaging, and resource-intensive farming practices. Embracing foraging as a hobby or lifestyle choice encompasses not only personal wellness but also a commitment to community, frugality, and environmental stewardship.
-        </p>
-
-        <h5>I'm In! Now What?</h5>
-
-        <p><b>Choosing the Right Equipment:</b></p>
-
-        <p>Foraging in Kentucky requires minimal equipment, but having the right tools can enhance your experience and ensure safety. Start with a sturdy basket or bag to collect your findings. A field guide specific to Kentucky's flora is invaluable for plant identification. Consider bringing along a small knife or scissors for harvesting and a pair of gloves to protect your hands.</p>
-
-        <p><b>Identifying Suitable Foraging Locations:</b></p>
-
-        <p>Kentucky offers diverse ecosystems, each with its unique foraging opportunities. Research and identify suitable locations based on the types of wild foods you're interested in. State parks, nature reserves, and public lands can be excellent starting points, but always respect local regulations and obtain any necessary permits.</p>
-
-        <p><b>Prioritizing Safety:</b></p>
-
-        <p>Safety is paramount in foraging. Familiarize yourself with poisonous plants in the region and learn to differentiate them from edible ones. It's advisable to forage with a companion, especially if you're a beginner. Let someone know your location and expected return time. Dress appropriately, wear sturdy footwear, and be cautious of your surroundings to avoid hazards like uneven terrain or wildlife.</p>
-
-        <p><b>Understanding Seasonal Opportunities:</b></p>
-
-        <p>Kentucky's diverse climate brings forth a variety of wild edibles throughout the year. Research the seasons for specific plants, berries, mushrooms, and nuts. Spring may offer a bounty of tender greens, while summer brings berries and fruits. Fall is often prime time for nuts and mushrooms. Understanding the seasonal cycles will enhance your foraging success.</p>
-
-        <p><b>Ethical Foraging Practices:</b></p>
-
-        <p>Responsible foraging is key to maintaining the delicate balance of natural ecosystems. Harvest only what you need, leaving enough for wildlife and future foragers. Avoid disturbing fragile habitats, and be mindful of local regulations regarding foraging. Respect private property and seek permission when necessary.</p>
-
-        <p><b>Connecting with Local Foraging Communities:</b></p>
-
-        <p>Foraging is a communal activity, and connecting with local foraging communities can provide valuable insights, tips, and shared experiences. Attend local workshops, join online forums, or participate in guided foraging walks to expand your knowledge and meet like-minded enthusiasts.</p>
-
-        <p>Embarking on a foraging journey in Kentucky can be a rewarding and educational experience. By equipping yourself with knowledge, respecting nature, and adopting ethical practices, you'll not only enjoy the flavors of the wild but also contribute to the preservation of these valuable resources.</p>
-    </div>
-</div>
-
+<div>@text</div>
 
 @code {
-
+    private MarkupString text;
+    protected override async Task OnInitializedAsync()
+    {
+        text = Info.Basics;
+    }
 }

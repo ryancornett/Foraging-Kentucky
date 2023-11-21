@@ -7,17 +7,17 @@
 @inject IRepository<Item> repo
 @inject IRepository<User> users
 
+@page "/addfood"
+
 <h3>Add a New Wild Food</h3>
+
+<UIMessage @ref="uiMessage" />
 
 <div class="row my-1">
     <div class="col-md-4">
         <label for="username" class="form-label">Your Username</label>
         <input id="username" placeholder="Username" @bind="@username" class="form-control" />
     </div>
-</div>
-
-<div>
-    <span class="@alertSpan" role="alert">@alert</span>
 </div>
 
 <EditForm Model="@newItem" OnValidSubmit="AddThisItem" class="form-control">
@@ -58,72 +58,49 @@
 
     <div class="row my-1">
         <div class="col-md-4">
-            <label for="name" class="form-label">Image URL (do not change if you have no image)</label>
+            <label for="name" class="form-label">Image URL</label>
             <InputText id="name" placeholder="Wild food name" @bind-Value="newItem.ImagePath" class="form-control" />
         </div>
     </div>
 
-    <button type="submit" class="btn-primary">Add new wild food</button>
+    <button type="submit" class="btn-primary shadow-none">Add new wild food</button>
 </EditForm>
 
 @code {
     public ItemModel newItem = new ItemModel();
     private string username;
+    public UIMessage uiMessage;
     private async Task AddThisItem()
     {
         var method = MethodBase.GetCurrentMethod().Name;
         User user = await users.Retrieve(username);
-        if (user == null) { AlertMessage("Username does not exist."); }
+        if (user == null) { uiMessage.AlertMessage("Username does not exist."); }
         else
         {
             if (String.IsNullOrWhiteSpace(newItem.Name))
             {
                 string message = "'Name' cannot be blank or white space. Please try again.";
-                AlertMessage(message);
+                uiMessage.AlertMessage(message);
                 newItem.Log(method, $"{Logger.invalid} - {newItem.Name} - {message}");
-                LogToConsole(message);
             }
             else if (repo.CheckIfExists(newItem.Name.CapitalizeEachWord()))
             {
                 string message = "This wild food item has already been added to our database.";
-                AlertMessage(message);
+                uiMessage.AlertMessage(message);
                 newItem.Log(method, $"{Logger.invalid} - {newItem.Name} - {message}");
-                LogToConsole(message);
             }
             else
             {
-                var itemEntity = new Item(newItem.Name.CapitalizeEachWord()) { Type = newItem.Type, Description = newItem.Description, IsEdibleRaw = newItem.IsEdibleRaw, ImagePath = newItem.ImagePath };
+                var itemEntity = new Item(newItem.Name.CapitalizeEachWord()) { Type = newItem.Type, Description = newItem.Description, IsEdibleRaw = newItem.IsEdibleRaw, ImagePath = (newItem.ImagePath == null) ? "images/no-image.webp" : newItem.ImagePath };
                 await repo.Add(itemEntity);
                 await repo.AddUserToItemList(itemEntity, user);
-                ClearAlert();
+                uiMessage.SuccessMessage($"{itemEntity.Name} was added!");
                 itemEntity.Log(method, $"{Logger.success} - {itemEntity.Name} added by {user.Name}.");
                 newItem = new ItemModel();
                 username = string.Empty;
+                await Task.Delay(2000);
+                uiMessage.ClearAlert();
             }
         }
-    }
-
-    public string alertSpan = "no-alert";
-    public string? alert;
-
-    protected override async Task OnInitializedAsync()
-    {
-    }
-
-    private void AlertMessage(string message)
-    {
-        alertSpan = "invalid-input validation-message";
-        alert = message;
-    }
-
-    private void ClearAlert()
-    {
-        alertSpan = "valid-input";
-        alert = string.Empty;
-    }
-
-    private void LogToConsole(string msg)
-    {
-        JSRuntime.InvokeVoidAsync("console.log", msg);
     }
 }
