@@ -13,99 +13,68 @@
 
 <div class="btn-group d-flex" role="group" aria-label="Edit user group">
     <div class="mx-2">
-        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(1)"><i class="fas fa-user-plus"></i> Register</button>
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(_createNewUserVisibilityIndex)"><i class="fas fa-user-plus"></i> Register</button>
     </div>
 
     <div class="mx-2">
-        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(5)"><i class="fas fa-list"></i> My Saved Wild Foods</button>
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(_myForagingVisibilityIndex)"><i class="fas fa-list"></i> My Saved Wild Foods</button>
     </div>
 
     <div class="mx-2">
-        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(2)"><i class="fas fa-user-pen"></i> Change Username</button>
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(_changeUserVisibilityIndex)"><i class="fas fa-user-pen"></i> Change Username</button>
     </div>
 
     <div class="mx-2">
-        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(3)"><i class="fas fa-envelope"></i> Change Email</button>
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(_changeEmailVisibilityIndex)"><i class="fas fa-envelope"></i> Change Email</button>
     </div>
 
     <div class="mx-2">
-        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(4)"><i class="fas fa-trash"></i> Delete Profile</button>
+        <button class="btn-primary shadow-none" @onclick="() => ToggleUserComps(_deleteProfileVisibilityIndex)"><i class="fas fa-trash"></i> Delete Profile</button>
     </div>
 </div>
 
 <UIMessage @ref="uiMessage" />
 
-@if (isCreateNewUserVisible)
+@if (Visibility[_createNewUserVisibilityIndex])
 {
     <NewUser Parent ="@this" />
 }
-@if (isMyForagingVisible)
+@if (Visibility[_myForagingVisibilityIndex])
 {
     <MyForaging Parent="@this" />
 }
-@if (isChangeUsernameVisible)
+@if (Visibility[_changeUserVisibilityIndex])
 {
     <ChangeUsername Parent="@this" />
 }
-@if (isChangeEmailVisible)
+@if (Visibility[_changeEmailVisibilityIndex])
 {
     <ChangeEmail Parent ="@this" />
 }
-@if (isDeleteProfileVisible)
+@if (Visibility[_deleteProfileVisibilityIndex])
 {
     <DeleteProfile Parent ="@this" />
 }
 
 @code {
     public UIMessage uiMessage;
-    public bool isCreateNewUserVisible = false;
-    public bool isMyForagingVisible = false;
-    private bool isChangeUsernameVisible = false;
-    private bool isChangeEmailVisible = false;
-    private bool isDeleteProfileVisible = false;
+    private const int _createNewUserVisibilityIndex = 0;
+    private const int _myForagingVisibilityIndex = 4;
+    private const int _changeUserVisibilityIndex = 1;
+    private const int _changeEmailVisibilityIndex = 2;
+    private const int _deleteProfileVisibilityIndex = 3;
+
+    public bool[] Visibility = new bool[5] { false, false, false, false, false };
 
     public async Task ToggleUserComps(int buttonId)
     {
-        switch (buttonId)
+        for (var index = 0; index < Visibility.Length; index++)
         {
-            case 1:
-                isCreateNewUserVisible = !isCreateNewUserVisible;
-                isMyForagingVisible = false;
-                isChangeUsernameVisible = false;
-                isChangeEmailVisible = false;
-                isDeleteProfileVisible = false;
-                break;
-
-            case 2:
-                isChangeUsernameVisible = !isChangeUsernameVisible;
-                isCreateNewUserVisible = false;
-                isMyForagingVisible = false;
-                isChangeEmailVisible = false;
-                isDeleteProfileVisible = false;
-                break;
-
-            case 3:
-                isChangeEmailVisible = !isChangeEmailVisible;
-                isCreateNewUserVisible = false;
-                isMyForagingVisible = false;
-                isChangeUsernameVisible = false;
-                isDeleteProfileVisible = false;
-                break;
-
-            case 4:
-                isDeleteProfileVisible = !isDeleteProfileVisible;
-                isCreateNewUserVisible = false;
-                isMyForagingVisible = false;
-                isChangeUsernameVisible = false;
-                isChangeEmailVisible = false;
-                break;
-            case 5:
-                isMyForagingVisible = !isMyForagingVisible;
-                isCreateNewUserVisible = false;
-                isChangeUsernameVisible = false;
-                isChangeEmailVisible = false;
-                isDeleteProfileVisible = false;
-                break;
+            if (buttonId == index)
+            {
+                Visibility[index] = !Visibility[index];
+            }
+            else { Visibility[index] = false; }
         }
         await RemoveComponentAndFadeAlert();
     }

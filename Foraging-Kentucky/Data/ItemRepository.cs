@@ -128,4 +128,9 @@ public class ItemRepository : IRepository<Item>
     {
         throw new NotImplementedException();
     }
+
+    public Task RemoveItemFromUserList(User user, Item item)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -1,4 +1,6 @@
-﻿namespace Foraging_Kentucky.Domain;
+﻿using System.Text.Json.Serialization;
+
+namespace Foraging_Kentucky.Domain;
 
 // The Item object follows the Open-Closed principle.
 // It is extended by methods in the Logger class, but closed for modification.

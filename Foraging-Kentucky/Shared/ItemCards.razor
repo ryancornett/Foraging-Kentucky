@@ -5,6 +5,7 @@
 @using System.Reflection;
 @inject IRepository<Item> repo
 @inject IRepository<User> users
+@inject NavigationManager nav
 
 @foreach (var item in Items)
 {
@@ -23,12 +24,19 @@
                     <h6 class="card-subtitle alert-danger">Must be prepared</h6>
                 }
                 <p class="card-text">@item.Description.MakeParagraphsFromString()</p>
-                @if (ShowSaveThis)
-                {
+
+                <div class="btn-group">
                     <div>
-                        <button class="btn btn-primary shadow-none" @onclick="() => AddItemToUser(item.Name)">Save This</button>
+                        <button class="btn btn-primary shadow-none me-2" @onclick="() => Navigate(item.Id)">Focus</button>
                     </div>
-                }
+
+                    @if (ShowSaveThis)
+                    {
+                        <div>
+                            <button class="btn btn-primary shadow-none" @onclick="() => AddItemToUser(item.Name)">Save This</button>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
@@ -53,5 +61,10 @@
             users.AddItemToUserList(user, item);
         }
         else { WildFoodsParent.uiMessage.AlertMessage("An error occurred. Please be sure to type your username in the Username field"); }
+    }
+
+    public async Task Navigate(int id)
+    {
+        nav.NavigateTo($"items/{id}");
     }
 }

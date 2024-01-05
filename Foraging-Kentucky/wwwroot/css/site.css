@@ -23,7 +23,7 @@ a, .btn-link {
     color: #0071c1;
 }
 
-.btn-primary {
+.btn-primary, .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     color: #fff;
     background-color: var(--primary-dark);
     border-color: var(--primary-dark);
@@ -32,7 +32,14 @@ a, .btn-link {
 
     .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
         color: #000;
-        background-color: var(--light-gray);
+        background-color: var(--secondary-light);
+        border-color: var(--light-gray);
+        transition: all ease 350ms;
+    }
+
+    .btn-primary:disabled {
+        color: #000;
+        background-color: var(--dark-gray);
         border-color: var(--light-gray);
         transition: all ease 350ms;
     }
@@ -42,10 +49,6 @@ a, .btn-link {
             background-color: var(--dark-gray);
             border-color: var(--light-gray);
         }
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    background-color: var(--secondary-light);
-}
 
 .content {
     padding-top: 1.1rem;

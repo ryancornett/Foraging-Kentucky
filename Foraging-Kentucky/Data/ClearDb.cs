@@ -10,7 +10,7 @@ public static class ClearDb
     {
         var folder = Environment.SpecialFolder.Desktop;
         var path = Environment.GetFolderPath(folder);
-        string DbPath = Path.Join(path, "/forage-kentucky.db");
+        string DbPath = Path.Join(path, "/db/forage-kentucky.db");
 
         string connectionString = $"Data Source={DbPath}";
         using (SqliteConnection connection = new SqliteConnection(connectionString))

@@ -89,6 +89,23 @@ public class UserRepository : IRepository<User>
 
     }
 
+    public async Task RemoveItemFromUserList(User user, Item item)
+    {
+        var method = MethodBase.GetCurrentMethod().Name;
+        try
+        {
+            user.Items.Remove(item);
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+            _context.Entry(user).State = EntityState.Detached;
+        }
+        catch (Exception ex)
+        {
+            user.Log(method, $"{Logger.error} - {user.Name} - {ex}");
+        }
+
+    }
+
     // Not needed for this entity
     public Task<List<User>> RetrieveByProperty(string value)
     {

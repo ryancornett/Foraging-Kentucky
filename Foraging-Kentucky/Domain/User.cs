@@ -1,5 +1,6 @@
 ﻿using Foraging_Kentucky.Common;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Foraging_Kentucky.Domain;
 public class User

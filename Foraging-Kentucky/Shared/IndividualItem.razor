@@ -1,0 +1,170 @@
+﻿@using Foraging_Kentucky.Common;
+@using Foraging_Kentucky.Data;
+@using Foraging_Kentucky.Domain;
+@using System.Net.Http.Json;
+@using Foraging_Kentucky.Models;
+@using Microsoft.AspNetCore.Components;
+@inject HttpClient httpClient
+@inject IRepository<Item> repo
+@inject IRepository<User> users
+@inject NavigationManager nav
+
+@page "/items/{ItemId}"
+
+@if (apiModel != null)
+{
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-5">
+            <h2>@apiModel.Name</h2>
+        </div>
+        <div class="col-md-5">
+            <input id="username" placeholder="Enter username to save @apiModel.Name" @bind="@username" class="form-control" />
+        </div>
+    </div>
+}
+
+<UIMessage @ref="uiMessage" />
+
+<div class="row d-flex justify-content-center">
+@if (apiModel != null)
+{
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-body">
+                <img class="card-img" src="@apiModel.ImagePath" alt="Please refer to item description." />
+                <h5 class="card-text">@apiModel.Type</h5>
+                @if (apiModel.IsEdibleRaw)
+                {
+                    <h6 class="card-title alert-success">Is edible raw</h6>
+                }
+                else
+                {
+                    <h6 class="card-subtitle alert-danger">Must be prepared</h6>
+                }
+            </div>
+        </div>
+    </div>
+
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">@descriptionForExtension.MakeParagraphsFromString()</p>
+                    <div>
+                        <button class="btn btn-primary shadow-none" @onclick="() => itemToUser(apiModel.Name)">@saveRemoveButton</button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary shadow-none my-4 me-2" disabled="@previousIsDisabled" @onclick="() => Navigate(previousItemId, false)">Previous</button>
+
+            <button class="btn btn-primary shadow-none my-4" disabled="@nextIsDisabled" @onclick="() => Navigate(nextItemId, true)">Next</button>
+        </div>
+
+        
+}
+else
+{
+    <p>Sorry, there is nothing here.</p>
+}
+</div>
+
+@code {
+    private ApiItemModel apiModel = new();
+    private ForageContext context = new ForageContext();
+    private List<Item> items = new();
+    [Parameter]
+    public string ItemId { get; set; }
+    private int parsedItemId;
+    public UIMessage uiMessage = new();
+    private string username;
+    private int nextItemId = 0;
+    private int previousItemId = 0;
+    private bool previousIsDisabled { get; set; } = false;
+    private bool nextIsDisabled { get; set; } = false;
+    private string descriptionForExtension = string.Empty;
+    private string saveRemoveButton = "Save";
+    private bool itemIsSaved = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient.BaseAddress = new Uri("http://localhost:5028/");
+        items = await repo.GetListAsync();
+        SetNewPage();
+    }
+
+    private async Task SetNewPage()
+    {
+        await GetData();
+        await GetQueue();
+        saveRemoveButton = "Save";
+        StateHasChanged();
+    }
+
+    private async Task Navigate(int id, bool next)
+    {
+        nextIsDisabled = false;
+        previousIsDisabled = false;
+        if (next)
+        {
+            nav.NavigateTo($"items/{@nextItemId}");
+            ItemId = nextItemId.ToString();
+        }
+        else
+        {
+            nav.NavigateTo($"items/{@previousItemId}");
+            ItemId = previousItemId.ToString();
+        }
+        SetNewPage();
+    }
+
+    private async Task GetQueue()
+    {
+        if (int.TryParse(ItemId, out parsedItemId))
+        {
+            nextItemId = parsedItemId + 1;
+            @if (parsedItemId > items.Count - 1) { nextIsDisabled = true; }
+            previousItemId = parsedItemId - 1;
+            @if (parsedItemId == 1) { previousIsDisabled = true; }
+        }
+    }
+
+    public async Task GetData()
+    {
+        var apiResponse = await httpClient.GetFromJsonAsync<ApiItemModel>($"api/items/{ItemId}");
+        if (apiResponse != null)
+        {
+            apiModel.Name = apiResponse.Name;
+            descriptionForExtension = apiResponse.Description.ToString();
+            apiModel.Type = apiResponse.Type;
+            apiModel.IsEdibleRaw = apiResponse.IsEdibleRaw;
+            apiModel.ImagePath = apiResponse.ImagePath;
+        }
+        else { uiMessage.AlertMessage("Item not found"); }
+    }
+
+    public async Task itemToUser(string itemName)
+    {
+        User user = await users.Retrieve(username);
+        Item item = await repo.Retrieve(itemName);
+        if (user != null && item != null)
+        {
+            if (!itemIsSaved)
+            {
+                await users.AddItemToUserList(user, item);
+                saveRemoveButton = "Remove";
+            }
+            else
+            {
+                await users.RemoveItemFromUserList(user, item);
+                saveRemoveButton = "Save";
+            }
+            itemIsSaved = !itemIsSaved;
+        }
+        
+        else
+        {
+            uiMessage.AlertMessage("An error occurred. Please be sure to type your username in the Username field");
+            await Task.Delay(2000);
+            uiMessage.ClearAlert();
+        }
+    }
+}

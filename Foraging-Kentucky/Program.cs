@@ -9,10 +9,10 @@ public class Program
     {
         #region Clear and/or Seed Database
         // Resets the database when starting the program; comment out to truly persist data
-        // ClearDb.ClearDatabase();
+        //ClearDb.ClearDatabase();
 
         // Seeds the database when starting the program; comment out to avoid identitcal data entries
-        SeedDb.SeedAndVerify();
+        //SeedDb.SeedAndVerify();
         #endregion
 
         #region App Configurations
@@ -21,9 +21,16 @@ public class Program
         // Add services to the container.
         builder.Services.AddRazorPages();
         builder.Services.AddServerSideBlazor();
+        builder.Services.AddControllers();
         builder.Services.AddTransient<IRepository<Item>, ItemRepository>();
         builder.Services.AddTransient<IRepository<User>, UserRepository>();
         builder.Services.AddTransient<IRepository<Recipe>, RecipeRepository>();
+        builder.Services.AddHttpClient("MyApiClient", client =>
+        {
+            client.BaseAddress = new Uri("http://localhost:5028/");
+        });
+
+        builder.Services.AddDbContext<ForageContext>();
 
         var app = builder.Build();
 
@@ -41,8 +48,16 @@ public class Program
 
         app.UseRouting();
 
-        app.MapBlazorHub();
-        app.MapFallbackToPage("/_Host");
+        //app.MapBlazorHub();
+        //app.MapFallbackToPage("/_Host");
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers(); // Map controllers to endpoints
+            endpoints.MapBlazorHub();
+            endpoints.MapRazorPages();
+            endpoints.MapFallbackToPage("/_Host");
+        });
 
         app.Run();
         #endregion

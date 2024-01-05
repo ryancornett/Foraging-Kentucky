@@ -118,4 +118,9 @@ public class RecipeRepository : IRepository<Recipe>
     {
         throw new NotImplementedException();
     }
+
+    public Task RemoveItemFromUserList(User user, Item item)
+    {
+        throw new NotImplementedException();
+    }
 }

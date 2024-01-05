@@ -341,9 +341,9 @@ Perhaps best known is the tea made from basswood flowers, steeped in hot water. 
             new Item("Ramp, or Wild Leek")
             {
                 Type = ItemOptions.ItemTypes[3],
-                Description = @"This plant is called wild leek further north. It belongs to a large, diverse genus, Allium, which contains our domestic onion, leek, garlic, shallot, chive, and a large number of other wild onion species around the world. Despite its name, the wild leak is not some woodland counterpart of the domestic vegetable that goes by the same name; it is no more closely related to the cultivated leek than it is to the onion or chives.
+                Description = @"This plant is called wild leek further north. It belongs to a large, diverse genus, Allium, which contains our domestic onion, leek, garlic, shallot, chive, and a large number of other wild onion species around the world. Despite its name, the wild leek is not some woodland counterpart of the domestic vegetable that goes by the same name; it is no more closely related to the cultivated leek than it is to the onion or chives.
 
-Ramps tend to form large clumps about 4 to 10 inches wide with bulbs packed tightly together. In areas where many such clumps are side-by-side or run together, while leeks my carpet large areas of the forest floor with a magical luxuriance. Each plant has two or three lanceolate, basal leaves, which are 8 to 12 inches long and 1 to 3 inches wide. These leaves are quite un-onionlike: they are flat and wide, resembling lily leaves.
+Ramps tend to form large clumps about 4 to 10 inches wide with bulbs packed tightly together. In areas where many such clumps are side-by-side or run together, leeks may carpet large areas of the forest floor with a magical luxuriance. Each plant has two or three lanceolate, basal leaves, which are 8 to 12 inches long and 1 to 3 inches wide. These leaves are quite un-onionlike: they are flat and wide, resembling lily leaves.
 
 Please forage responsibly, as overharvesting has resulted in declining populations; locally, entire populations have disappeared.",
                 IsEdibleRaw = true,

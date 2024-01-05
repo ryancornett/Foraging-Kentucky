@@ -11,6 +11,7 @@ public interface IRepository<T> where T : class
     public bool CheckIfExists(string name);
     public Task AddUserToItemList(Item item, User user);
     public Task AddItemToUserList(User user, Item item);
+    public Task RemoveItemFromUserList(User user, Item item);
     public Task AddUserToRecipeAddedBy(Recipe recipe, User user);
     public Task Delete (T type);
     public Task Update(T type);
